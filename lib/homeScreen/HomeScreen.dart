@@ -35,6 +35,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   _scaffoldKey.currentState!.openDrawer();
                 },
               ),
+              actions: [
+                IconButton(
+                  icon: Icon(
+                      Icons.account_circle,
+                    color: Colors.black,
+                    size: 30.w,
+                  ),
+                  onPressed: () {
+                  },
+                ),
+              ],
             ),
             drawer: Drawer(
               child: ListView(

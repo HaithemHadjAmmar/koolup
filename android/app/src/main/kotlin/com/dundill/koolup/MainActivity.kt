@@ -1,4 +1,4 @@
-package com.example.koolup
+package com.dundill.koolup
 
 import io.flutter.embedding.android.FlutterActivity
 
