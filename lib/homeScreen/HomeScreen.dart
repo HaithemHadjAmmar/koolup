@@ -39,10 +39,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 IconButton(
                   icon: Icon(
                       Icons.account_circle,
-                    color: Colors.black,
-                    size: 30.w,
+                      color: Color(0xFF341748),
+                      size: 30.w,
                   ),
                   onPressed: () {
+
                   },
                 ),
               ],
