@@ -20,7 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
         centerTitle: true,
@@ -180,6 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: const CustomButtomNavigationBar(),
+    )
     );
   }
 }
