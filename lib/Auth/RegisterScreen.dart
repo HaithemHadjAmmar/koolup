@@ -21,8 +21,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String _fullname = '';
   String _phone = '';
 
-  Color emailBorderColor = Color(0xFFfeb502);
-  Color passwordBorderColor = Color(0xFFfeb502);
+  Color emailBorderColor = Color(0xFF341748);
+  Color passwordBorderColor = Color(0xFF341748);
 
   /// Login Function
   void handleLogin() {

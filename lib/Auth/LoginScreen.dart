@@ -23,8 +23,8 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  Color emailBorderColor = Color(0xFFfeb502);
-  Color passwordBorderColor = Color(0xFFfeb502);
+  Color emailBorderColor = Color(0xFF341748);
+  Color passwordBorderColor = Color(0xFF341748);
 
   /// Login Function
   void handleLogin() {
