@@ -45,26 +45,49 @@ class _ProfileState extends State<Profile> {
 class ContentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.person_outline,
-            color: Colors.white,
-            size: 80.w,
-          ),
-          SizedBox(height: 6.h),
-          Text(
-            'haithem.beenammar43@gmail.com',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 14.sp,
+    return  Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 300.w, top: 30.h),
+              child: IconButton(
+                icon: Icon(Icons.start,
+                  color: Colors.white,
+                  size: 30.w,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
             ),
-          ),
-        ],
-      ),
+
+            Icon(
+              Icons.person_outline,
+              color: Colors.white,
+              size: 80.w,
+            ),
+            SizedBox(height: 6.h),
+            Text(
+              'Haithem Hadj Ammar',
+              style: GoogleFonts.roboto(
+                color: Colors.black,
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w600
+              ),
+            ),
+            SizedBox(height: 2.h),
+            Text(
+              'haithem.beenammar43@gmail.com',
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w400
+              ),
+            ),
+          ],
+        ),
+
     );
   }
 }
-
