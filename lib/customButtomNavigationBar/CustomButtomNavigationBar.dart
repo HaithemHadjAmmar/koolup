@@ -1,11 +1,15 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class CustomButtomNavigationBar extends StatefulWidget {
   const CustomButtomNavigationBar({Key? key}) : super(key: key);
 
   @override
-  State<CustomButtomNavigationBar> createState() => _CustomButtomNavigationBarState();
+  State<CustomButtomNavigationBar> createState() =>
+      _CustomButtomNavigationBarState();
 }
 
 class _CustomButtomNavigationBarState extends State<CustomButtomNavigationBar> {
@@ -18,24 +22,19 @@ class _CustomButtomNavigationBarState extends State<CustomButtomNavigationBar> {
 
     switch (index) {
       case 0:
-      // Navigate to the DashboardScreen
-        Navigator.pushReplacementNamed(context, '/dashboard');
+        Get.toNamed('/dashboard');
         break;
       case 1:
-      // Navigate to the MenuScreen
-        Navigator.pushReplacementNamed(context, '/menu');
+        Get.toNamed('/menu');
         break;
       case 2:
-      // Navigate to the AddScreen
-        Navigator.pushReplacementNamed(context, '/add');
+        Get.toNamed('/add');
         break;
       case 3:
-      // Navigate to the NotificationsScreen
-        Navigator.pushReplacementNamed(context, '/notifications');
+        Get.toNamed('/notifications');
         break;
       case 4:
-      // Navigate to the ProfileScreen
-        Navigator.pushReplacementNamed(context, '/profile');
+        Get.toNamed('/profile');
         break;
       default:
         break;
@@ -51,7 +50,7 @@ class _CustomButtomNavigationBarState extends State<CustomButtomNavigationBar> {
       showSelectedLabels: false,
       showUnselectedLabels: false,
       items: [
-       const BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.dashboard_outlined),
           label: '',
         ),
@@ -60,14 +59,14 @@ class _CustomButtomNavigationBarState extends State<CustomButtomNavigationBar> {
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add_circle_outline_outlined , size: 45.w),
+          icon: Icon(Icons.add_circle_outline_outlined, size: 45.w),
           label: '',
         ),
-       const BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.notifications_outlined),
           label: '',
         ),
-       const BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.person_outline),
           label: '',
         ),
@@ -75,4 +74,3 @@ class _CustomButtomNavigationBarState extends State<CustomButtomNavigationBar> {
     );
   }
 }
-
