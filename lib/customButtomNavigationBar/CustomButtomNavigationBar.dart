@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButtomNavigationBar extends StatefulWidget {
   const CustomButtomNavigationBar({Key? key}) : super(key: key);
@@ -25,23 +26,23 @@ class _CustomButtomNavigationBarState extends State<CustomButtomNavigationBar> {
       showSelectedLabels: false,
       showUnselectedLabels: false,
       items: [
-        BottomNavigationBarItem(
+       const BottomNavigationBarItem(
           icon: Icon(Icons.dashboard_outlined),
           label: '',
         ),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.menu),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add_circle_outline_outlined , size: 40,),
+          icon: Icon(Icons.add_circle_outline_outlined , size: 45.w),
           label: '',
         ),
-        BottomNavigationBarItem(
+       const BottomNavigationBarItem(
           icon: Icon(Icons.notifications_outlined),
           label: '',
         ),
-        BottomNavigationBarItem(
+       const BottomNavigationBarItem(
           icon: Icon(Icons.person_outline),
           label: '',
         ),
