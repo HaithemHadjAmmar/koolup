@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:koolup/Constantes.dart';
+import 'package:koolup/profile/profile.dart';
 
 import 'Auth/LoginScreen.dart';
 import 'TabletDetector.dart';
@@ -37,6 +38,13 @@ class MyApp extends StatelessWidget {
       designSize: Size(360, 690),
       builder: (BuildContext context, Widget? widget) {
         return GetMaterialApp(
+              routes: {
+               // '/dashboard': (context) => DashboardScreen(),
+              //  '/menu': (context) => MenuScreen(),
+              //  '/add': (context) => AddScreen(),
+              //  '/notifications': (context) => NotificationsScreen(),
+                '/profile': (context) => Profile(),
+              },
           debugShowCheckedModeBanner: false,
           home: SplashScreen(),
           builder: (BuildContext context, Widget? child) {
