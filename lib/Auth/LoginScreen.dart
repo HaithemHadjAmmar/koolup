@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          transitionDuration: Duration(milliseconds: 500),
+          transitionDuration: Duration(milliseconds: 800),
           pageBuilder: (context, animation, secondaryAnimation) {
             return FadeTransition(
               opacity: animation,
