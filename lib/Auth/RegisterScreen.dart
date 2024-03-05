@@ -74,7 +74,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Hero(
-                      tag: 'Moby',
+                      tag: 'kool',
                       child: Image.asset(
                         'assets/logo2.png',
                         width: 200,

@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Column(
                               children: [
                                 Hero(
-                                  tag: 'Moby',
+                                  tag: 'kool',
                                   child:
                                   Image.asset(
                                     'assets/logo2.png',

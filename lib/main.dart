@@ -62,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(milliseconds: 800), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => LoginScreen(),
       ));
@@ -76,8 +76,8 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: Image.asset(
           'assets/logo.png',
-          width: 200.w, // Adjust width as needed
-          height: 200.h, // Adjust height as needed
+          width: 200.w,
+          height: 200.h,
         ),
       ),
     );
