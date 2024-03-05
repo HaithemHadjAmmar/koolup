@@ -28,7 +28,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void handleLogin() {
     setState(() {});
 
-    if (_email.isNotEmpty &&
+    if (_email.isNotEmpty && _email.contains('@') &&
         _password.isNotEmpty &&
         _fullname.isNotEmpty &&
         _phone.isNotEmpty) {
@@ -81,7 +81,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         height: 200,
                       ),
                     ),
-                    SizedBox(height: 10.h),
+                    SizedBox(height: 14.h),
                     TextField(
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
@@ -184,7 +184,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             TextSpan(
                               text: 'click here',
                               style: GoogleFonts.roboto(
-                                color: koolColor,
+                                color: Colors.blueGrey,
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.bold,
                               ),

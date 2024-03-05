@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/gestures.dart';
-
 import '../Constantes.dart';
 import '../homeScreen/HomeScreen.dart';
 import 'RegisterScreen.dart';
@@ -30,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void handleLogin() {
     setState(() {});
 
-    if (_email.isNotEmpty && _password.isNotEmpty) {
+    if (_email.isNotEmpty && _password.isNotEmpty && _email.contains('@')) {
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
@@ -160,7 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         TextSpan(
                                           text: 'click here ?',
                                           style: GoogleFonts.roboto(
-                                            color: koolColor,
+                                            color: Colors.blueGrey,
                                             fontSize: 14.sp,
                                             fontWeight: FontWeight.bold,
                                           ),
