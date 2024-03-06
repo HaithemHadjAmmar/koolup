@@ -18,7 +18,7 @@ class _ProfileState extends State<Profile> {
         height: 230.h,
         transform: Matrix4.translationValues(0.0, -24.0, 0.0),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             colors: [Color(0xFF527FEF), Color(0xFF3162DA)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -45,49 +45,46 @@ class _ProfileState extends State<Profile> {
 class ContentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 300.w, top: 30.h),
-              child: IconButton(
-                icon: Icon(Icons.start,
-                  color: Colors.white,
-                  size: 30.w,
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 300.w, top: 30.h),
+            child: IconButton(
+              icon: Icon(
+                Icons.start,
+                color: Colors.white,
+                size: 30.w,
               ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
-
-            Icon(
-              Icons.person_outline,
-              color: Colors.white,
-              size: 80.w,
-            ),
-            SizedBox(height: 6.h),
-            Text(
-              'Haithem Hadj Ammar',
-              style: GoogleFonts.roboto(
+          ),
+          Icon(
+            Icons.person_outline,
+            color: Colors.white,
+            size: 80.w,
+          ),
+          SizedBox(height: 6.h),
+          Text(
+            'Haithem Hadj Ammar',
+            style: GoogleFonts.roboto(
                 color: Colors.black,
                 fontSize: 16.sp,
-                fontWeight: FontWeight.w600
-              ),
-            ),
-            SizedBox(height: 2.h),
-            Text(
-              'haithem.beenammar43@gmail.com',
-              style: GoogleFonts.roboto(
+                fontWeight: FontWeight.w600),
+          ),
+          SizedBox(height: 2.h),
+          Text(
+            'haithem.beenammar43@gmail.com',
+            style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontSize: 14.sp,
-                fontWeight: FontWeight.w400
-              ),
-            ),
-          ],
-        ),
-
+                fontWeight: FontWeight.w400),
+          ),
+        ],
+      ),
     );
   }
 }
