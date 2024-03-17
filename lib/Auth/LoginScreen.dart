@@ -9,6 +9,8 @@ import '../Constantes.dart';
 import '../homeScreen/HomeScreen.dart';
 import 'package:get/get.dart';
 
+import 'ForgotPassword.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -187,7 +189,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    // Add your onPressed logic for "Forgot Password" here
+                                    Get.to(
+                                          () => ForgotPasswordScreen(),
+                                      transition: Transition.fadeIn,
+                                      duration: Duration(milliseconds: 300),
+                                    );
                                   },
                                   child: Text(
                                     'Forgot Password',
