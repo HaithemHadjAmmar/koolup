@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (_email.isEmpty && _password.isEmpty) {
       errorSnackBar(context, 'Enter email and password');
     } else if (_email.isEmpty) {
-      errorSnackBar(context, 'Enter your User data');
+      errorSnackBar(context, 'Enter your User Name');
     } else if (_password.isEmpty) {
       errorSnackBar(context, 'Enter your password');
     } else {
@@ -65,21 +65,24 @@ class _LoginScreenState extends State<LoginScreen> {
                       heightFactor: 1.2,
                       child: Stack(
                         children: [
-                          Column(
+                      Positioned(
+                        top: 200.h,
+                      left: 0,
+                      right: 0,
+                      child: Column(
                       children: [
-                          Center(
-                              child: Text(
+                           Text(
                                 'Log In',
                                 style: GoogleFonts.poppins(
                                   color: Colors.white,
                                   fontSize: 30.sp,
                                   fontWeight: FontWeight.w700
                                 ),
-                              )
-                            ),
+                              ),
+
                         SizedBox(height: 3.h),
-                        Center(
-                            child: Text(
+
+                          Text(
                               'Please sign in to your existing account',
                               style: GoogleFonts.poppins(
                                   color: Colors.white,
@@ -87,12 +90,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontWeight: FontWeight.w400
                               ),
                             )
-                           ),
                             ]
                           ),
+                      ),
                           Positioned(
                             top: 20.h,
-                            right: 180.w,
+
                             child: SizedBox(
                                 child: Image.asset(
                                   'assets/img.png',
