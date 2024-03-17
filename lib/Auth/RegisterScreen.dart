@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:koolup/Constantes.dart';
 import 'LoginScreen.dart';
+import 'package:get/get.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -25,28 +26,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Color passwordBorderColor = Color(0xFF341748);
 
   /// Login Function
-  void handleLogin() {
+  void handleRegister() {
     setState(() {});
 
     if (_email.isNotEmpty &&
         _email.contains('@') &&
         _password.isNotEmpty &&
         _userName.isNotEmpty &&
-        _confirmPassword.isNotEmpty) {
-      Navigator.pushReplacement(
-        context,
-        PageRouteBuilder(
-          transitionDuration: Duration(milliseconds: 500),
-          pageBuilder: (context, animation, secondaryAnimation) {
-            return FadeTransition(
-              opacity: animation,
-              child: LoginScreen(),
-            );
-          },
-        ),
+        _confirmPassword.isNotEmpty &&
+        _password == _confirmPassword) {
+
+      Get.to(
+            () => LoginScreen(),
+        transition: Transition.fadeIn,
+        duration: Duration(milliseconds: 300),
       );
     } else {
-      errorSnackBar(context, 'Enter all required fields');
+      errorSnackBar(context, 'Enter all required fields and make sure passwords match');
     }
   }
 
@@ -210,18 +206,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               },
                               cursorColor: koolColor,
                             ),
-                            SizedBox(height: 10.h),
+                            SizedBox(height: 30.h),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.symmetric(horizontal: 20.h),
+                                padding: EdgeInsets.symmetric(horizontal: 20.w),
                                 backgroundColor: Color(0xFFFF7622),
-                                fixedSize: Size(330.8, 40),
+                                fixedSize: Size(330.8, 60),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                               ),
                               onPressed: () {
-                                handleLogin();
+                                handleRegister();
                               },
                               child: Text(
                                 'SIGN UP',
@@ -239,6 +235,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
               ),
-            ])));
+            ]
+            )
+        )
+    );
   }
 }

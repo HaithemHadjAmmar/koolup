@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
       Get.to(
         () => HomeScreen(),
         transition: Transition.fadeIn,
-        duration: Duration(milliseconds: 800),
+        duration: Duration(milliseconds: 300),
       );
     }
   }
@@ -204,7 +204,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               style: ElevatedButton.styleFrom(
                                 padding: EdgeInsets.symmetric(horizontal: 20.h),
                                 backgroundColor: Color(0xFFFF7622),
-                                fixedSize: Size(330.8, 40),
+                                fixedSize: Size(330.8, 60),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
