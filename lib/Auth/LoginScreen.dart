@@ -66,16 +66,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Stack(
                         children: [
                       Positioned(
-                        top: 200.h,
-                      left: 0,
-                      right: 0,
+                        top: 150.h,
+                        left: 0,
+                        right: 0,
                       child: Column(
                       children: [
                            Text(
                                 'Log In',
                                 style: GoogleFonts.poppins(
                                   color: Colors.white,
-                                  fontSize: 30.sp,
+                                  fontSize: 28.sp,
                                   fontWeight: FontWeight.w700
                                 ),
                               ),
@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               'Please sign in to your existing account',
                               style: GoogleFonts.poppins(
                                   color: Colors.white,
-                                  fontSize: 16.sp,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w400
                               ),
                             )
@@ -110,9 +110,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   Expanded(
-                    flex: 10,
+                    flex: 12,
                     child: FractionallySizedBox(
-                      heightFactor: 1,
+                      heightFactor: 1.2,
                       child: Container(
                         decoration: const BoxDecoration(
                           color: Colors.white,
