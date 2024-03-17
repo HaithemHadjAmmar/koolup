@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../CircleButton.dart';
 import '../Constantes.dart';
 import '../homeScreen/HomeScreen.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -36,17 +37,10 @@ class _LoginScreenState extends State<LoginScreen> {
     } else {
       setState(() {});
 
-      Navigator.pushReplacement(
-        context,
-        PageRouteBuilder(
-          transitionDuration: const Duration(milliseconds: 800),
-          pageBuilder: (context, animation, secondaryAnimation) {
-            return FadeTransition(
-              opacity: animation,
-              child: HomeScreen(),
-            );
-          },
-        ),
+      Get.to(
+            () => HomeScreen(),
+        transition: Transition.fadeIn,
+        duration: Duration(milliseconds: 800),
       );
     }
   }
@@ -197,7 +191,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         'Remember Me',
                                         style: GoogleFonts.poppins(
                                           color: Color(0xFF000000),
-                                          fontSize: 12.sp,
+                                          fontSize: 13.sp,
                                           fontWeight: FontWeight.w400
                                         ),
                                       ),
@@ -211,7 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       'Forgot Password',
                                       style:  GoogleFonts.poppins(
                                         color: Color(0xFFFF7622),
-                                          fontSize: 12.sp,
+                                          fontSize: 14.sp,
                                           fontWeight: FontWeight.w400
                                       ),
                                     ),
@@ -313,7 +307,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ],
                                 ),
-
                               ],
                             ),
                           ),
@@ -324,6 +317,5 @@ class _LoginScreenState extends State<LoginScreen> {
                 ])
         )
     );
-
   }
 }
