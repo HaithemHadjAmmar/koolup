@@ -50,6 +50,8 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  bool rememberMe = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,7 +175,51 @@ class _LoginScreenState extends State<LoginScreen> {
                                   },
                                   cursorColor: koolColor,
                                 ),
-                                SizedBox(height: 14.h),
+
+                                SizedBox(height: 6.h),
+
+                                Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Checkbox(
+                                        value: rememberMe,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            rememberMe = value!;
+                                          });
+                                        },
+                                        activeColor: Color(0xFFFF7622),
+                                      ),
+                                      Text(
+                                        'Remember Me',
+                                        style: GoogleFonts.poppins(
+                                          color: Color(0xFF000000),
+                                          fontSize: 12.sp,
+                                          fontWeight: FontWeight.w400
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      // Add your onPressed logic for "Forgot Password" here
+                                    },
+                                    child: Text(
+                                      'Forgot Password',
+                                      style:  GoogleFonts.poppins(
+                                        color: Color(0xFFFF7622),
+                                          fontSize: 12.sp,
+                                          fontWeight: FontWeight.w400
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                                SizedBox(height: 10.h),
+
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     padding: EdgeInsets.symmetric(horizontal: 20.h), backgroundColor: Color(0xFFFF7622),
