@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../CircleButton.dart';
 import '../Constantes.dart';
 import '../homeScreen/HomeScreen.dart';
 
@@ -273,7 +274,46 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ],
                                 ),
-                                
+
+                                Center(
+                                  child: Text('Or',
+                                  style: GoogleFonts.poppins(
+                                    color: Color(0xFF646982),
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  ),
+                                ),
+
+                                SizedBox(height: 12.h),
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    CircleButton(
+                                      onPressed: () {
+                                        // Add your onPressed logic for Facebook sign-in here
+                                      },
+                                      color: Color(0xFF3B5998),
+                                      icon: Icons.facebook_sharp,
+                                    ),
+                                    CircleButton(
+                                      onPressed: () {
+                                        // Add your onPressed logic for Google sign-in here
+                                      },
+                                      color: Colors.white,
+                                      icon: Icons.g_mobiledata,
+                                    ),
+                                    CircleButton(
+                                      onPressed: () {
+                                        // Add your onPressed logic for Apple sign-in here
+                                      },
+                                      color: Color(0xFF000000),
+                                      icon: Icons.apple,
+                                    ),
+                                  ],
+                                ),
+
                               ],
                             ),
                           ),
