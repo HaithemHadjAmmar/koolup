@@ -1,10 +1,10 @@
+// ignore_for_file: file_names, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter/gestures.dart';
 import '../Constantes.dart';
 import '../homeScreen/HomeScreen.dart';
-import 'RegisterScreen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -14,7 +14,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   bool _obscureText = true;
   String _email = '';
   String _password = '';
@@ -22,18 +21,24 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  Color emailBorderColor = Color(0xFF341748);
-  Color passwordBorderColor = Color(0xFF341748);
+  Color emailBorderColor = Color(0xFFfeb502);
+  Color passwordBorderColor = Color(0xFFfeb502);
 
   /// Login Function
   void handleLogin() {
-    setState(() {});
+    if (_email.isEmpty && _password.isEmpty) {
+      errorSnackBar(context, 'Enter email and password');
+    } else if (_email.isEmpty) {
+      errorSnackBar(context, 'Enter your User data');
+    } else if (_password.isEmpty) {
+      errorSnackBar(context, 'Enter your password');
+    } else {
+      setState(() {});
 
-    if (_email.isNotEmpty && _password.isNotEmpty && _email.contains('@')) {
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          transitionDuration: Duration(milliseconds: 800),
+          transitionDuration: const Duration(milliseconds: 800),
           pageBuilder: (context, animation, secondaryAnimation) {
             return FadeTransition(
               opacity: animation,
@@ -42,8 +47,6 @@ class _LoginScreenState extends State<LoginScreen> {
           },
         ),
       );
-    } else {
-      errorSnackBar(context, 'Enter all required fields');
     }
   }
 
@@ -52,139 +55,165 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
         body: Container(
             decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Color(0xFF341748), Colors.blueGrey],
-              ),
+             color: Color(0xFF341748),
             ),
-            child: Padding(
-                padding: EdgeInsets.all(23.w),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                          padding: EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Column(
-                              children: [
-                                Hero(
-                                  tag: 'kool',
-                                  child:
-                                  Image.asset(
-                                    'assets/logo2.png',
-                                    width: 200,
-                                    height: 200,
-                                  ),
+            child: Column(
+                children: [
+                  Expanded(
+                    flex: 7,
+                    child: FractionallySizedBox(
+                      heightFactor: 1.2,
+                      child: Stack(
+                        children: [
+                          Column(
+                      children: [
+                          Center(
+                              child: Text(
+                                'Log In',
+                                style: GoogleFonts.poppins(
+                                  color: Colors.white,
+                                  fontSize: 30.sp,
+                                  fontWeight: FontWeight.w700
                                 ),
-                                SizedBox(height: 14.h),
+                              )
+                            ),
+                        SizedBox(height: 3.h),
+                        Center(
+                            child: Text(
+                              'Please sign in to your existing account',
+                              style: GoogleFonts.poppins(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w400
+                              ),
+                            )
+                           ),
+                            ]
+                          ),
+                          Positioned(
+                            top: 20.h,
+                            right: 180.w,
+                            child: SizedBox(
+                                child: Image.asset(
+                                  'assets/img.png',
+                                  width: 350.w,
+                                  height: 350.h,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 10,
+                    child: FractionallySizedBox(
+                      heightFactor: 1,
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(60),
+                            topRight: Radius.circular(60),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 25.w),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                SizedBox(height: 80.h),
                                 TextField(
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
-                                    suffixIcon: Icon(Icons.email),
-                                    hintText: 'Entrer votre email',
-                                    labelText: 'E-mail',
+                                    suffixIcon: Icon(Icons.person),
+                                    hintText: 'Enter your User Name',
+                                    labelText: 'User Name',
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(18.0),
+                                      borderSide: BorderSide(color: koolColor),
                                     ),
                                   ),
                                   onChanged: (value) {
                                     _email = value;
                                   },
+                                  cursorColor: koolColor,
                                 ),
 
-                                SizedBox(height: 8.h),
+                                SizedBox(height: 18.h),
 
                                 TextField(
-                                    obscureText: _obscureText,
-                                    decoration: InputDecoration(
-                                      suffixIcon: GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            _obscureText = !_obscureText;
-                                          });
-                                        },
-                                        child: Icon(
-                                          _obscureText
-                                              ? Icons.visibility_off
-                                              : Icons.visibility,
-                                        ),
-                                      ),
-                                      hintText: 'Enter your password',
-                                      labelText: 'Password',
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            18.0),
+                                  obscureText: _obscureText,
+                                  decoration: InputDecoration(
+                                    suffixIcon: GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          _obscureText = !_obscureText;
+                                        });
+                                      },
+                                      child: Icon(
+                                        _obscureText
+                                            ? Icons.visibility_off
+                                            : Icons.visibility,
                                       ),
                                     ),
-                                    onChanged: (value) {
-                                      _password = value;
-                                    }
+                                    hintText: 'Enter your password',
+                                    labelText: 'Password',
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(18.0),
+                                      borderSide: BorderSide(color: koolColor),
+                                    ),
+                                  ),
+                                  onChanged: (value) {
+                                    _password = value;
+                                  },
+                                  cursorColor: koolColor,
                                 ),
-
-                                SizedBox(height: 4.h),
-
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 20.w, vertical: 10.h),
-                                  child: ElevatedButton(
-                                    onPressed: handleLogin,
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: koolColor,
+                                SizedBox(height: 14.h),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    padding: EdgeInsets.symmetric(horizontal: 20.h), backgroundColor: Color(0xFFFF7622),
+                                    fixedSize: Size(330.8, 40),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                    child: Text(
-                                      'Login',
-                                      style: GoogleFonts.roboto(
-                                        color: Colors.white,
-                                        fontSize: 26,
-                                        fontWeight: FontWeight.w600,
-                                      ),
+                                  ),
+                                  onPressed: () {
+                                    handleLogin();
+                                  },
+                                  child: Text(
+                                    'SIGN IN',
+                                    style: GoogleFonts.inter(
+                                      color: Colors.white,
+                                      fontSize: 20.sp,
+                                      fontWeight: FontWeight.w900,
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  alignment: Alignment.centerRight,
-                                  child: RichText(
-                                    text: TextSpan(
-                                      text: 'If you don\'t have an account ',
-                                      style: GoogleFonts.roboto(
-                                        color: Colors.black,
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                      children: <TextSpan>[
-                                        TextSpan(
-                                          text: 'click here ?',
-                                          style: GoogleFonts.roboto(
-                                            color: Colors.blueGrey,
-                                            fontSize: 14.sp,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          recognizer: TapGestureRecognizer()
-                                            ..onTap = () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      RegisterScreen(),
-                                                ),
-                                              );
-                                            },
-                                        ),
-                                      ],
+                                SizedBox(
+                                  height: 120.h,
+                                ),
+                                Center(
+                                  child: Text(
+                                    '© Dundill . 2024 All Rights Reserved',
+                                    style: GoogleFonts.inter(
+                                        color: Color(0xFFFF7622),
+                                        fontSize: 10.sp,
+                                        fontWeight: FontWeight.w600
                                     ),
                                   ),
-                                ),
-                              ]
-                          )
-                      )
-                    ]
-                )
-            )
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ])
         )
     );
+
   }
 }
