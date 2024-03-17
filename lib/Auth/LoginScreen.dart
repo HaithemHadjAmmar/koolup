@@ -8,7 +8,6 @@ import '../CircleButton.dart';
 import '../Constantes.dart';
 import '../homeScreen/HomeScreen.dart';
 import 'package:get/get.dart';
-
 import 'ForgotPassword.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -305,6 +304,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-            ])));
+            ]
+            )
+        )
+    );
   }
 }

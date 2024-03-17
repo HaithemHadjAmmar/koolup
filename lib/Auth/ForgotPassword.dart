@@ -24,7 +24,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     if (_email.isNotEmpty &&
         _email.contains('@')
        ) {
-
       Get.to(
             () => LoginScreen(),
         transition: Transition.fadeIn,
