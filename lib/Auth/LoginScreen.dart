@@ -240,19 +240,40 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                 ),
+
                                 SizedBox(
-                                  height: 120.h,
+                                  height: 5.h,
                                 ),
-                                Center(
-                                  child: Text(
-                                    '© Dundill . 2024 All Rights Reserved',
-                                    style: GoogleFonts.inter(
-                                        color: Color(0xFFFF7622),
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w600
+
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Don't have an account?",
+                                      style: GoogleFonts.poppins(
+                                        color: Color(0xFF646982),
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w400,
+                                      ),
                                     ),
-                                  ),
-                                )
+
+                                    TextButton(
+                                      onPressed: () {
+                                        // Add your onPressed logic for the "Sign Up" button here
+                                      },
+                                      child: Text(
+                                        'Sign Up',
+                                        style: GoogleFonts.poppins(
+                                          color: Color(0xFFFF7622),
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                
                               ],
                             ),
                           ),
