@@ -241,7 +241,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     Get.to(
                                       () => RegisterScreen(),
                                       transition: Transition.fadeIn,
-                                      duration: Duration(milliseconds: 800),
+                                      duration: Duration(milliseconds: 300),
                                     );
                                   },
                                   child: Text(

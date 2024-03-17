@@ -55,7 +55,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
             decoration: const BoxDecoration(
               color: Color(0xFF341748),
             ),
-            child: Column(children: [
+            child: Column(
+                children: [
               Expanded(
                 flex: 7,
                 child: FractionallySizedBox(
@@ -82,8 +83,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w400),
                           )
-                        ]),
+                        ]
+                        ),
                       ),
+                      Positioned(
+                        top: 80.h,
+                        left: 10.w,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: SizedBox(
+                            child: Image.asset(
+                              'assets/backButton.png',
+                              width: 50.w,
+                              height: 50.h,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                      ),
+
                       Positioned(
                         top: 20.h,
                         child: SizedBox(
