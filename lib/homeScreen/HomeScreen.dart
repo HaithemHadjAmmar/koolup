@@ -47,62 +47,26 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       drawer: CustomDrawer(),
       body: Padding(
-        padding: EdgeInsets.only(top: 18.h),
+        padding: EdgeInsets.only(top: 10.h, left: 20.w),
         child: SingleChildScrollView(
           child: Column(
             children: [
               Row(
                 children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 30.w),
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            '20',
-                            style: GoogleFonts.sen(
-                              fontSize: 52.sp,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 6.h),
-                        Text(
-                          'RUNNING ORDERS',
-                          style: GoogleFonts.sen(
-                            color: Colors.grey,
-                            fontSize: 14.sp,
-                          ),
-                        ),
-                      ],
-                    ),
+                  Text('Hey Chahed, ',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF1E1D1D),
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.w),
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            '05',
-                            style: GoogleFonts.sen(
-                              fontSize: 52.sp,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 6.h),
-                        Text(
-                          'ORDER REQUEST',
-                          style: GoogleFonts.sen(
-                            color: Colors.grey,
-                            fontSize: 14.sp,
-                          ),
-                        ),
-                      ],
-                    ),
                   ),
+                  Text('Welcome!',
+                    style: GoogleFonts.poppins(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF1E1D1D),
+                    ),
+                  )
                 ],
               ),
             ],

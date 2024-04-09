@@ -13,7 +13,7 @@ errorSnackBar(BuildContext context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     backgroundColor: koolColor,
     content: Text(text,
-      style: GoogleFonts.roboto(
+      style: GoogleFonts.poppins(
           fontSize: 16.sp,
           fontWeight: FontWeight.w700
       ),
