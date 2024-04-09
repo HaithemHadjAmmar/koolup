@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+
 import '../Constantes.dart';
-import 'LoginScreen.dart';
+import 'VerificationCodeScreen.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
@@ -25,18 +26,19 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         _email.contains('@')
        ) {
       Get.to(
-            () => LoginScreen(),
+            () => VerificationCodeScreen(),
         transition: Transition.fadeIn,
         duration: Duration(milliseconds: 300),
       );
     } else {
-      errorSnackBar(context, 'E-mail Required');
+      errorSnackBar(context, 'Enter Your E-mail');
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Container(
             decoration: const BoxDecoration(
               color: Color(0xFF341748),
@@ -157,8 +159,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                     'Send Code',
                                     style: GoogleFonts.inter(
                                       color: Colors.white,
-                                      fontSize: 20.sp,
-                                      fontWeight: FontWeight.w900,
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w700,
                                     ),
                                   ),
                                 ),

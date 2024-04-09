@@ -18,7 +18,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
   bool _obscureText = true;
+
   String _userName = '';
   String _password = '';
 
@@ -31,14 +33,14 @@ class _LoginScreenState extends State<LoginScreen> {
   /// Login Function
   void handleLogin() {
     if (_userName.isEmpty && _password.isEmpty) {
-      errorSnackBar(context, 'Enter email and password');
+      errorSnackBar(context, 'Enter all required fields');
     } else if (_userName.isEmpty) {
       errorSnackBar(context, 'Enter your User Name');
     } else if (_password.isEmpty) {
       errorSnackBar(context, 'Enter your password');
     } else {
-      setState(() {});
-
+      setState(() {}
+      );
       Get.to(
         () => HomeScreen(),
         transition: Transition.fadeIn,
@@ -52,6 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Container(
             decoration: const BoxDecoration(
               color: Color(0xFF341748),

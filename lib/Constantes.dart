@@ -11,11 +11,11 @@ const Map<String, String> headers = {"Content-Type": "application/json"};
 
 errorSnackBar(BuildContext context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    backgroundColor: Colors.red,
+    backgroundColor: koolColor,
     content: Text(text,
       style: GoogleFonts.roboto(
           fontSize: 16.sp,
-          fontWeight: FontWeight.w400
+          fontWeight: FontWeight.w700
       ),
     ),
     duration: const Duration(seconds: 2),
