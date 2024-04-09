@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:koolup/Constantes.dart';
@@ -44,8 +45,15 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           TextButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: Text('Yes', style: GoogleFonts.poppins(),),
+            onPressed: () {
+              SystemNavigator.pop(); // Close the app
+            },
+            child: Text(
+              'Yes',
+              style: GoogleFonts.poppins(
+                color: koolColor,
+              ),
+            ),
           ),
         ],
       ),
