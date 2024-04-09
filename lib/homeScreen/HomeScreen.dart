@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:koolup/Constantes.dart';
 import '../Drawer/CustomDrawer.dart';
 import '../customButtomNavigationBar/CustomButtomNavigationBar.dart';
 
@@ -69,6 +70,42 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ),
+
+              Container(
+                margin: EdgeInsets.only(top: 15.h, right: 30.w),
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                decoration: BoxDecoration(
+                  color: Color(0xFFF6F6F6),
+                  borderRadius: BorderRadius.circular(100.r),
+                  border: Border.all(width: 2, color: Color(0xFFA0A5BA),),
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.search,
+                      color: Color(0xFF676767),
+                      size: 25.w,
+                    ),
+                    SizedBox(width: 10.w),
+                    Expanded(
+                      child: TextField(
+                        keyboardType: TextInputType.name,
+                        cursorColor: koolColor,
+                        decoration: InputDecoration(
+                          hintText: 'Search dishes, restaurants',
+                          hintStyle: GoogleFonts.inter(
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w900,
+                            color: Color(0xFF676767),
+                          ),
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
             ],
           ),
         ),
