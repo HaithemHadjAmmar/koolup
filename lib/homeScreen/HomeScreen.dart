@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../Constantes.dart';
+import '../Drawer/CustomDrawer.dart';
 import '../customButtomNavigationBar/CustomButtomNavigationBar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,13 +15,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  Color textColor1 = koolColor;
-  Color textColor2 = koolColor;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
+        child: Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
         centerTitle: true,
@@ -39,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             icon: Icon(
-              Icons.account_circle,
+              Icons.shopping_bag_outlined,
               color: Color(0xFF341748),
               size: 30.w,
             ),
@@ -47,76 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: const BoxDecoration(
-                color: Color(0xFF341748),
-              ),
-              child: Center(
-                child: Image.asset(
-                  'assets/logo.png',
-                ),
-              ),
-            ),
-            ListTile(
-              splashColor: koolColor,
-              leading: Icon(
-                Icons.check_circle,
-                color: textColor1,
-              ),
-              title: Text(
-                'Item 1',
-                style: GoogleFonts.roboto(
-                  color: textColor1,
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              onTap: () {
-                setState(() {
-                  textColor1 = Colors.white;
-                });
-
-                Future.delayed(Duration(milliseconds: 200), () {
-                  setState(() {
-                    textColor1 = koolColor;
-                  });
-                });
-              },
-            ),
-            ListTile(
-              splashColor: koolColor,
-              leading: Icon(
-                Icons.check_circle,
-                color: textColor2,
-              ),
-              title: Text(
-                'Item 2',
-                style: GoogleFonts.roboto(
-                  color: textColor2,
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              onTap: () {
-                setState(() {
-                  textColor2 = Colors.white;
-                });
-
-                Future.delayed(Duration(milliseconds: 200), () {
-                  setState(() {
-                    textColor2 = koolColor;
-                  });
-                });
-              },
-            ),
-            const Divider(),
-          ],
-        ),
-      ),
+      drawer: CustomDrawer(),
       body: Padding(
         padding: EdgeInsets.only(top: 18.h),
         child: SingleChildScrollView(
@@ -181,7 +110,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: const CustomButtomNavigationBar(),
-    )
-    );
+    ));
   }
 }
