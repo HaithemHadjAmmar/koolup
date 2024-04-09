@@ -17,9 +17,46 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  Future<bool> _onWillPop() async {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Exit App', style: GoogleFonts.poppins(),),
+        content: Text('Are you sure you want to exit?',  style: GoogleFonts.poppins(),),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Container(
+              decoration: BoxDecoration(
+                color: koolColor,
+                borderRadius: BorderRadius.circular(10.r),
+              ),
+              child: TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(
+                  'No',
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w900,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text('Yes', style: GoogleFonts.poppins(),),
+          ),
+        ],
+      ),
+    ).then((value) => value ?? false);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return WillPopScope(
+        onWillPop: _onWillPop,
+        child: SafeArea(
         child: Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
@@ -111,6 +148,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: const CustomButtomNavigationBar(),
-    ));
+    )
+    )
+    );
   }
 }
