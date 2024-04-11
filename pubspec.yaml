@@ -41,6 +41,12 @@ dependencies:
   fl_chart: ^0.66.2
   pin_code_fields: ^8.0.1
 
+flutter_launcher_icons:
+  image_path: "assets/play_store_512.png"
+  android: "launcher_icon"
+  ios: true
+  min_sdk_android: 33
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
