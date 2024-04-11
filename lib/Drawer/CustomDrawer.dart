@@ -1,8 +1,12 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:koolup/profile/profile.dart';
 import '../Constantes.dart';
+import 'package:get/get.dart';
+import '../homeScreen/HomeScreen.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -34,14 +38,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ListTile(
             splashColor: koolColor,
             leading: Icon(
-              Icons.check_circle,
+              Icons.dashboard,
               color: textColor1,
             ),
             title: Text(
-              'Item 1',
-              style: GoogleFonts.roboto(
+              'Home',
+              style: GoogleFonts.poppins(
                 color: textColor1,
-                fontSize: 18,
+                fontSize: 18.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -53,20 +57,25 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 setState(() {
                   textColor1 = koolColor;
                 });
+                Get.to(
+                      () => HomeScreen(),
+                  transition: Transition.fadeIn,
+                  duration: Duration(milliseconds: 300),
+                );
               });
             },
           ),
           ListTile(
             splashColor: koolColor,
             leading: Icon(
-              Icons.check_circle,
+              Icons.person_2_rounded,
               color: textColor2,
             ),
             title: Text(
-              'Item 2',
-              style: GoogleFonts.roboto(
+              'Profile',
+              style: GoogleFonts.poppins(
                 color: textColor2,
-                fontSize: 18,
+                fontSize: 18.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -74,6 +83,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
               setState(() {
                 textColor2 = Colors.white;
               });
+              Get.to(
+                    () => Profile(),
+                transition: Transition.fadeIn,
+                duration: Duration(milliseconds: 300),
+              );
               Future.delayed(Duration(milliseconds: 200), () {
                 setState(() {
                   textColor2 = koolColor;
