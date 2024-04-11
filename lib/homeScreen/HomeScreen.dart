@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:koolup/CardComponent/HomeCard.dart';
 import 'package:koolup/Constantes.dart';
 import '../Drawer/CustomDrawer.dart';
+import '../customappbar/AppBar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -74,30 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SafeArea(
             child: Scaffold(
           key: _scaffoldKey,
-          appBar: AppBar(
-            centerTitle: true,
-            title: Image.asset(
-              'assets/logo2.png',
-            ),
-            leading: IconButton(
-              icon: Image.asset(
-                'assets/Menu.png',
-              ),
-              onPressed: () {
-                _scaffoldKey.currentState!.openDrawer();
-              },
-            ),
-            actions: [
-              IconButton(
-                icon: Icon(
-                  Icons.shopping_bag_outlined,
-                  color: Color(0xFF341748),
-                  size: 30.w,
-                ),
-                onPressed: () {},
-              ),
-            ],
-          ),
+          appBar: CustomAppBar(scaffoldKey: _scaffoldKey),
           drawer: CustomDrawer(),
           body: SingleChildScrollView(
             child: Column(
