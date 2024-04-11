@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           hintText: 'Search dishes, restaurants',
                           hintStyle: GoogleFonts.inter(
                             fontSize: 15.sp,
-                            fontWeight: FontWeight.w900,
+                            fontWeight: FontWeight.w400,
                             color: Color(0xFF676767),
                           ),
                           border: InputBorder.none,
@@ -152,6 +152,45 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
+              SizedBox(height: 8.h),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'All Categories',
+                    style: GoogleFonts.poppins(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF32343E),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      // Add your onPressed logic here
+                    },
+
+                   child: Row(
+                      children: [
+                        Text(
+                          'See All',
+                          style: GoogleFonts.poppins(
+                            fontSize: 16.sp,
+                            color: Color(0xFF32343E),
+                          ),
+                        ),
+
+                        SizedBox(width: 8.w),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Color(0xFFA0A5BA),
+                          size: 20.w,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         ),
