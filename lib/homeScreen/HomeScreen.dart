@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Text(
                   'No',
                   style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.w700,
                     color: Colors.white,
                   ),
                 ),
@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Text(
               'Yes',
               style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.w700,
                 color: koolColor,
               ),
             ),
