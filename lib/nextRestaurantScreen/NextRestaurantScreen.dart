@@ -57,7 +57,7 @@ class NextRestaurantScreen extends StatelessWidget {
                     IconButton(
                       icon: const Icon(Icons.more_horiz),
                       color: Colors.white,
-                      iconSize: 30.w,
+                      iconSize: 35.w,
                       onPressed: () {
                         // Add onPressed function for menu icon
                       },
