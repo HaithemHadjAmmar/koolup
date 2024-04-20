@@ -44,9 +44,12 @@ class _HomeCardState extends State<HomeCard> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset(
-              widget.image,
-              width: 500.w,
+            Hero(
+              tag: 'restaurant_image_${widget.image}',
+              child: Image.asset(
+                widget.image,
+                width: 500.w,
+              ),
             ),
             Padding(
               padding: EdgeInsets.all(2.w),
