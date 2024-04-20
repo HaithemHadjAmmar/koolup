@@ -72,7 +72,7 @@ class NextRestaurantScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: kToolbarHeight),
+                SizedBox(height: kToolbarHeight.h),
                 Text(
                  'Baguette & Baguette',
                   style: GoogleFonts.sen(
