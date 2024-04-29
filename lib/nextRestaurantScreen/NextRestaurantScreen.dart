@@ -158,7 +158,7 @@ class NextRestaurantScreen extends StatelessWidget {
                   TitleComponent(title: 'Burger'),
                   TitleComponent(title: 'Sandwish'),
                   TitleComponent(title: 'Pizza'),
-                  TitleComponent(title: 'Mlawi'),
+                  TitleComponent(title: 'Makloub'),
                 ],
               ),
             ),
