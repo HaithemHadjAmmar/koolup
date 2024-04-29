@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:koolup/cerclerestaurent/CercleRestaurent.dart';
 
 import '../CardComponent/menuCard/MenuCard.dart';
 
@@ -147,7 +148,11 @@ class NextRestaurantScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 410.h,
+            top: 415.h,
+            child: TitleComponent(title: 'Burger'),
+          ),
+          Positioned(
+            top: 445.h,
             left: 3.w,
             right: 3.w,
             child: SingleChildScrollView(
