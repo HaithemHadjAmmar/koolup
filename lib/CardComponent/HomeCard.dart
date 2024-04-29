@@ -11,12 +11,18 @@ class HomeCard extends StatefulWidget {
   final String image;
   final String title;
   final String subtitle;
+  final String review;
+  final String delivery;
+  final String time;
 
   const HomeCard({
     Key? key,
     required this.image,
     required this.title,
     required this.subtitle,
+    required this.review,
+    required this.delivery,
+    required this.time,
   }) : super(key: key);
 
   @override
@@ -29,10 +35,13 @@ class _HomeCardState extends State<HomeCard> {
     return GestureDetector(
       onTap: () {
         Get.to(
-              () => NextRestaurantScreen(
+          () => NextRestaurantScreen(
             image: widget.image,
             title: widget.title,
             subtitle: widget.subtitle,
+            review: widget.review,
+            delivery: widget.delivery,
+            time: widget.time,
           ),
           transition: Transition.fadeIn,
           duration: Duration(milliseconds: 300),
@@ -78,10 +87,62 @@ class _HomeCardState extends State<HomeCard> {
                 ],
               ),
             ),
+            SizedBox(height: 3.h),
+            Padding(
+              padding: EdgeInsets.only(left: 50.w),
+              child: Row(
+                children: [
+                  Row(children: [
+                    Icon(Icons.star_outline_outlined,
+                        color: Color(0xFFFF7622), size: 30.w),
+                    SizedBox(width: 2.w),
+                    Text(
+                      widget.review,
+                      style: GoogleFonts.poppins(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ]),
+                  SizedBox(width: 15.w),
+                  Row(
+                    children: [
+                      Icon(Icons.delivery_dining_outlined,
+                          color: Color(0xFFFF7622), size: 30.w),
+                      SizedBox(width: 2.w),
+                      Text(
+                        widget.delivery,
+                        style: GoogleFonts.poppins(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 15.w),
+                  Row(
+                    children: [
+                      Icon(Icons.access_time,
+                          color: Color(0xFFFF7622), size: 30.w),
+                      SizedBox(width: 2.w),
+                      Text(
+                        widget.time,
+                        style: GoogleFonts.poppins(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
