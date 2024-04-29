@@ -186,18 +186,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Positioned(
                   top: 2.h,
-                left: 0,
-                right: 0,
-                child: Row(
-                  children: [
-                    ImageTitleComponent(title: 'All', imagePath: 'assets/res.png'),
-
-                    ImageTitleComponent(title: 'Hot Dog', imagePath: 'assets/hotdog.png'),
-
-                    ImageTitleComponent(title: 'Burger', imagePath: 'assets/burger.png'),
-                  ],
+                  left: 0,
+                  right: 0,
+                  child: const SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        ImageTitleComponent(title: 'All', imagePath: 'assets/res.png'),
+                        ImageTitleComponent(title: 'Hot Dog', imagePath: 'assets/hotdog.png'),
+                        ImageTitleComponent(title: 'Burger', imagePath: 'assets/burger.png'),
+                      ],
+                    ),
+                  ),
                 ),
-                ),
+
                 Padding(
                   padding: EdgeInsets.only(top: 8.h, left: 20.w),
                   child: Row(

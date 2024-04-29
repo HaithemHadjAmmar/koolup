@@ -148,8 +148,20 @@ class NextRestaurantScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 415.h,
-            child: TitleComponent(title: 'Burger'),
+            top: 412.h,
+            left: 0,
+            right: 0,
+            child: const SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  TitleComponent(title: 'Burger'),
+                  TitleComponent(title: 'Sandwish'),
+                  TitleComponent(title: 'Pizza'),
+                  TitleComponent(title: 'Mlawi'),
+                ],
+              ),
+            ),
           ),
           Positioned(
             top: 465.h,
