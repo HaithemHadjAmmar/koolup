@@ -140,6 +140,7 @@ class _HomeCardState extends State<HomeCard> {
                 ],
               ),
             ),
+            SizedBox(height: 10.h),
           ],
         ),
       ),

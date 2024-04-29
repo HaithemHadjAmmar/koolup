@@ -231,6 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         delivery: 'Free',
                         time: '20 min',
                       ),
+
                       HomeCard(
                         image: 'assets/papa.png',
                         title: 'Rose Garden Restaurants',
