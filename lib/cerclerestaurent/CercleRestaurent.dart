@@ -25,27 +25,24 @@ class _TitleComponentState extends State<TitleComponent> {
         padding: EdgeInsets.symmetric(horizontal: 8.0.w),
         child: Column(
           children: [
-            Container(
-              height: 30.h,
-              width: 80.w,
-              decoration: BoxDecoration(
-                color: _isClicked ? Color(0xFFF58D1D) : Colors.white,
-                border: Border.all(
-                  color: Colors.grey,
-                  width: 1.0,
+            Material(
+              elevation: 5.0,
+              borderRadius: BorderRadius.circular(25.r),
+              child: Container(
+                height: 50.h,
+                width: 100.w,
+                decoration: BoxDecoration(
+                  color: _isClicked ? Color(0xFFF58D1D) : Colors.white,
+                  borderRadius: BorderRadius.circular(25.r),
                 ),
-                borderRadius: const BorderRadius.horizontal(
-                  left: Radius.circular(15.0),
-                  right: Radius.circular(15.0),
-                ),
-              ),
-              child: Center(
-                child: Text(
-                  widget.title,
-                  style: TextStyle(
-                    color: _isClicked ? Colors.white : Colors.black,
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w400,
+                child: Center(
+                  child: Text(
+                    widget.title,
+                    style: TextStyle(
+                      color: _isClicked ? Colors.white : Colors.black,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ),
@@ -57,4 +54,5 @@ class _TitleComponentState extends State<TitleComponent> {
     );
   }
 }
+
 
