@@ -26,39 +26,36 @@ class _ImageTitleComponentState extends State<ImageTitleComponent> {
         padding: EdgeInsets.symmetric(horizontal: 10.0.w),
         child: Column(
           children: [
-            Container(
-              height: 50.h,
-              width: 100.w,
-              decoration: BoxDecoration(
-                color: _isClicked ? Color(0xFFF58D1D) : Colors.white,
-                border: Border.all(
-                  color: Colors.grey,
-                  width: 1.0,
+            Material(
+              elevation: 5.0,
+              borderRadius: BorderRadius.circular(25.r),
+              child: Container(
+                height: 50.h,
+                width: 100.w,
+                decoration: BoxDecoration(
+                  color: _isClicked ? Color(0xFFF58D1D) : Colors.white,
+                  borderRadius: BorderRadius.circular(25.r),
                 ),
-                borderRadius: BorderRadius.horizontal(
-                  left: Radius.circular(25.r),
-                  right: Radius.circular(25.r),
-                ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    widget.imagePath,
-                    height: 20.h,
-                    width: 20.w,
-                    fit: BoxFit.contain,
-                  ),
-                  SizedBox(width: 8.0.w),
-                  Text(
-                    widget.title,
-                    style: TextStyle(
-                       color: Colors.black,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      widget.imagePath,
+                      height: 25.h,
+                      width: 25.w,
+                      fit: BoxFit.contain,
                     ),
-                  ),
-                ],
+                    SizedBox(width: 8.0.w),
+                    Text(
+                      widget.title,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(height: 8.0),
