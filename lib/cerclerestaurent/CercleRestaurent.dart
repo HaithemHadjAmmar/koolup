@@ -47,7 +47,7 @@ class _TitleComponentState extends State<TitleComponent> {
                 ),
               ),
             ),
-            SizedBox(height: 8.0),
+            SizedBox(height: 6.h),
           ],
         ),
       ),
