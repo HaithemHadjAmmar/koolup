@@ -22,7 +22,7 @@ class _TitleComponentState extends State<TitleComponent> {
         });
       },
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8.0.w),
+        padding: EdgeInsets.symmetric(horizontal: 8.w),
         child: Column(
           children: [
             Material(

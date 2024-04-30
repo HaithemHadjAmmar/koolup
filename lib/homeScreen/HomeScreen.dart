@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:koolup/CardComponent/HomeCard.dart';
 import 'package:koolup/Constantes.dart';
+import '../CardComponent/menuCard/MenuCard.dart';
 import '../Drawer/CustomDrawer.dart';
 import '../cerclehome/CercleHome.dart';
 import '../cerclerestaurent/CercleRestaurent.dart';
@@ -285,7 +286,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                  ]
                 )
-                  : Column(
+                  : SingleChildScrollView(
+          child: Column(
               children: [
             Padding(
                         padding: EdgeInsets.only(right: 150.w, top: 5.h),
@@ -325,9 +327,49 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(right: 140.w, top: 10.h),
+                  child: Text(
+                    textAlign: TextAlign.start,
+                    'Popular Fast Food',
+                    style: GoogleFonts.poppins(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF32343E),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 8.h,
+                  left: 3.w,
+                  right: 3.w,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: GridView.builder(
+                      shrinkWrap: true,
+                      padding: EdgeInsets.zero,
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 8,
+                        mainAxisSpacing: 8,
+                        childAspectRatio: 1,
+                      ),
+                      itemCount: 2,
+                      itemBuilder: (context, index) {
+                        return MenuCardComponent(
+                          image: 'assets/sunrise.png',
+                          foodName: 'Crispy Chiken Burger',
+                          restauName: 'Baguette & Bageutte',
+                          price: 12.99,
+                        );
+                      },
+                    ),
+                  ),
+                ),
               ],
             ),
-          ]
+            ),
+           ],
             ),
           ),
         ),

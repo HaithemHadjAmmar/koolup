@@ -178,7 +178,7 @@ class NextRestaurantScreen extends StatelessWidget {
                   mainAxisSpacing: 8,
                   childAspectRatio: 1,
                 ),
-                itemCount: 10,
+                itemCount: 2,
                 itemBuilder: (context, index) {
                   return MenuCardComponent(
                     image: 'assets/sunrise.png',
