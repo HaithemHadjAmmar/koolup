@@ -11,14 +11,14 @@ class TitleComponent extends StatefulWidget {
 }
 
 class _TitleComponentState extends State<TitleComponent> {
-  bool _isClicked = false;
+  bool _isSelected = false;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         setState(() {
-          _isClicked = !_isClicked;
+          _isSelected = !_isSelected;
         });
       },
       child: Padding(
@@ -32,14 +32,14 @@ class _TitleComponentState extends State<TitleComponent> {
                 height: 50.h,
                 width: 100.w,
                 decoration: BoxDecoration(
-                  color: _isClicked ? Color(0xFFF58D1D) : Colors.white,
+                  color: _isSelected ? Color(0xFFF58D1D) : Colors.white,
                   borderRadius: BorderRadius.circular(25.r),
                 ),
                 child: Center(
                   child: Text(
                     widget.title,
                     style: TextStyle(
-                      color: _isClicked ? Colors.white : Colors.black,
+                      color: _isSelected ? Colors.white : Colors.black,
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w600,
                     ),

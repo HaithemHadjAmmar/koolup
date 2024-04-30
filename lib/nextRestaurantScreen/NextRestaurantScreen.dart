@@ -180,7 +180,12 @@ class NextRestaurantScreen extends StatelessWidget {
                 ),
                 itemCount: 10,
                 itemBuilder: (context, index) {
-                  return MenuCardComponent();
+                  return MenuCardComponent(
+                    image: 'assets/sunrise.png',
+                    foodName: 'Crispy Chiken Burger',
+                    restauName: 'Baguette & Bageutte',
+                    price: 12.99,
+                  );
                 },
               ),
             ),
