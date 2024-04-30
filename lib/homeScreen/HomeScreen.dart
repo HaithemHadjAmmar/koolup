@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,6 +8,7 @@ import 'package:koolup/CardComponent/HomeCard.dart';
 import 'package:koolup/Constantes.dart';
 import '../Drawer/CustomDrawer.dart';
 import '../cerclehome/CercleHome.dart';
+import '../cerclerestaurent/CercleRestaurent.dart';
 import '../customappbar/AppBar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,6 +20,23 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  TextEditingController _searchController =
+      TextEditingController(); // Add controller
+
+  String _searchText = ''; // Track search text
+
+  @override
+  void dispose() {
+    _searchController.dispose(); // Dispose the controller
+    super.dispose();
+  }
+
+  // Method to update body content based on search text
+  void _updateBodyContent(String searchText) {
+    setState(() {
+      _searchText = searchText;
+    });
+  }
 
   Future<bool> _onWillPop() async {
     return showDialog(
@@ -73,9 +90,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        onWillPop: _onWillPop,
-        child: SafeArea(
-            child: Scaffold(
+      onWillPop: _onWillPop,
+      child: SafeArea(
+        child: Scaffold(
           key: _scaffoldKey,
           appBar: CustomAppBar(scaffoldKey: _scaffoldKey),
           drawer: CustomDrawer(),
@@ -113,10 +130,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: BoxDecoration(
                       color: Color(0xFFF6F6F6),
                       borderRadius: BorderRadius.circular(100.r),
-                      border: Border.all(
-                        width: 2,
-                        color: Color(0xFFA0A5BA),
-                      ),
                     ),
                     child: Row(
                       children: [
@@ -128,8 +141,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(width: 10.w),
                         Expanded(
                           child: TextField(
+                            controller: _searchController, // Assign controller
                             keyboardType: TextInputType.name,
                             cursorColor: koolColor,
+                            onChanged:
+                                _updateBodyContent, // Listen to text changes
                             decoration: InputDecoration(
                               hintText: 'Search dishes, restaurants',
                               hintStyle: GoogleFonts.inter(
@@ -145,7 +161,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                Padding(
+            _searchText.isEmpty
+                ?
+                Column(
+               children: [ Padding(
                   padding: EdgeInsets.only(top: 8.h, left: 20.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -158,7 +177,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Color(0xFF32343E),
                         ),
                       ),
-
                       TextButton(
                         onPressed: () {
                           // Add your onPressed logic here
@@ -192,9 +210,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        ImageTitleComponent(title: 'All', imagePath: 'assets/res.png'),
-                        ImageTitleComponent(title: 'Hot Dog', imagePath: 'assets/hotdog.png'),
-                        ImageTitleComponent(title: 'Burger', imagePath: 'assets/burger.png'),
+                        ImageTitleComponent(
+                            title: 'All', imagePath: 'assets/res.png'),
+                        ImageTitleComponent(
+                            title: 'Hot Dog', imagePath: 'assets/hotdog.png'),
+                        ImageTitleComponent(
+                            title: 'Burger', imagePath: 'assets/burger.png'),
                       ],
                     ),
                   ),
@@ -238,35 +259,63 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-                const Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      HomeCard(
-                        image: 'assets/Baguette.png',
-                        title: 'Rose Garden Restaurants',
-                        subtitle: 'Burger - Chicken - Dishes - Wings',
-                        review: '4.5',
-                        delivery: 'Free',
-                        time: '20 min',
-                      ),
-
-                      HomeCard(
-                        image: 'assets/papa.png',
-                        title: 'Rose Garden Restaurants',
-                        subtitle: 'Burger - Chicken - Dishes - Wings',
-                        review: '4.7',
-                        delivery: 'Free',
-                        time: '20 min',
-                      ),
-                    ],
-                  ),
+                // Show body content based on search text
+                 const Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            HomeCard(
+                              image: 'assets/Baguette.png',
+                              title: 'Rose Garden Restaurants',
+                              subtitle: 'Burger - Chicken - Dishes - Wings',
+                              review: '4.5',
+                              delivery: 'Free',
+                              time: '20 min',
+                            ),
+                            HomeCard(
+                              image: 'assets/papa.png',
+                              title: 'Rose Garden Restaurants',
+                              subtitle: 'Burger - Chicken - Dishes - Wings',
+                              review: '4.7',
+                              delivery: 'Free',
+                              time: '20 min',
+                            ),
+                          ],
+                        ),
+                      )
+                 ]
                 )
+                    : Padding(
+                        padding: EdgeInsets.only(right: 150.w, top: 5.h),
+                        child: Text(
+                          textAlign: TextAlign.start,
+                          'Recent keywords',
+                          style: GoogleFonts.poppins(
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFF32343E),
+                          ),
+                        ),
+                      ),
+                Padding(
+                  padding: EdgeInsets.only(top: 10.h),
+                  child: const SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        TitleComponent(title: 'Burger'),
+                        TitleComponent(title: 'Sandwish'),
+                        TitleComponent(title: 'Pizza'),
+                        TitleComponent(title: 'Makloub'),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
-
-          //  bottomNavigationBar: const CustomButtomNavigationBar(),
-        )));
+        ),
+      ),
+    );
   }
 }
