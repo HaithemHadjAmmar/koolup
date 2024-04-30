@@ -285,7 +285,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                  ]
                 )
-                    : Padding(
+                  : Column(
+              children: [
+            Padding(
                         padding: EdgeInsets.only(right: 150.w, top: 5.h),
                         child: Text(
                           textAlign: TextAlign.start,
@@ -311,7 +313,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(right: 90.w, top: 10.h),
+                  child: Text(
+                    textAlign: TextAlign.start,
+                    'Suggested Restaurants',
+                    style: GoogleFonts.poppins(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF32343E),
+                    ),
+                  ),
+                ),
               ],
+            ),
+          ]
             ),
           ),
         ),
