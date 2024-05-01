@@ -60,7 +60,7 @@ class SuggestedResComponenet extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 5.h),
+        SizedBox(height: 3.h),
        Divider(
           thickness: 1.0,
           color: Colors.grey,

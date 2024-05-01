@@ -330,11 +330,27 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 18.w, top: 10.h),
-                            child: SuggestedResComponenet(
-                              imagePath: 'assets/Baguette.png',
-                              resName: 'Bageutte & Baguette',
-                              review: '4.5',
-                            ),
+                              child: Column(
+                                children: [
+                                  SuggestedResComponenet(
+                                    imagePath: 'assets/bag.png',
+                                    resName: 'Bageutte & Baguette',
+                                    review: '4.5',
+                                  ),
+
+                                  SuggestedResComponenet(
+                                    imagePath: 'assets/Ali.png', // Replace with your image path
+                                    resName: 'Ali Chapati',
+                                    review: '4.4',
+                                  ),
+
+                                  SuggestedResComponenet(
+                                    imagePath: 'assets/Jaghalino.png', // Replace with your image path
+                                    resName: 'Jaghalino',
+                                    review: '4.2',
+                                  ),
+                                ],
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsets.only(right: 140.w, top: 20.h),
