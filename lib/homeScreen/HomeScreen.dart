@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:koolup/CardComponent/HomeCard.dart';
 import 'package:koolup/Constantes.dart';
-import '../CardComponent/menuCard/MenuCard.dart';
+import '../CardComponent/SearshCard/SearshCard.dart';
 import '../Drawer/CustomDrawer.dart';
 import '../cerclehome/CercleHome.dart';
 import '../cerclerestaurent/CercleRestaurent.dart';
@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     children: [
                       Text(
-                        'Hey Chahed, ',
+                        'Hey Chahed,',
                         style: GoogleFonts.poppins(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
@@ -162,214 +162,225 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-            _searchText.isEmpty
-                ?
-                Column(
-               children: [ Padding(
-                  padding: EdgeInsets.only(top: 8.h, left: 20.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'All Categories',
-                        style: GoogleFonts.poppins(
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFF32343E),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          // Add your onPressed logic here
-                        },
-                        child: Row(
-                          children: [
-                            Text(
-                              'See All',
-                              style: GoogleFonts.poppins(
-                                fontSize: 16.sp,
-                                color: Color(0xFF32343E),
+                _searchText.isEmpty
+                    ? Column(children: [
+                        Padding(
+                          padding: EdgeInsets.only(top: 8.h, left: 20.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'All Categories',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF32343E),
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 8.w),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              color: Color(0xFFA0A5BA),
-                              size: 20.w,
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Positioned(
-                  top: 2.h,
-                  left: 0,
-                  right: 0,
-                  child: const SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        ImageTitleComponent(
-                            title: 'All', imagePath: 'assets/res.png'),
-                        ImageTitleComponent(
-                            title: 'Hot Dog', imagePath: 'assets/hotdog.png'),
-                        ImageTitleComponent(
-                            title: 'Burger', imagePath: 'assets/burger.png'),
-                      ],
-                    ),
-                  ),
-                ),
-
-                Padding(
-                  padding: EdgeInsets.only(top: 8.h, left: 20.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Open Restaurants',
-                        style: GoogleFonts.poppins(
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFF32343E),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          // Add your onPressed logic here
-                        },
-                        child: Row(
-                          children: [
-                            Text(
-                              'See All',
-                              style: GoogleFonts.poppins(
-                                fontSize: 16.sp,
-                                color: Color(0xFF32343E),
-                              ),
-                            ),
-                            SizedBox(width: 8.w),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              color: Color(0xFFA0A5BA),
-                              size: 20.w,
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                // Show body content based on search text
-                 const Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            HomeCard(
-                              image: 'assets/Baguette.png',
-                              title: 'Rose Garden Restaurants',
-                              subtitle: 'Burger - Chicken - Dishes - Wings',
-                              review: '4.5',
-                              delivery: 'Free',
-                              time: '20 min',
-                            ),
-                            HomeCard(
-                              image: 'assets/papa.png',
-                              title: 'Rose Garden Restaurants',
-                              subtitle: 'Burger - Chicken - Dishes - Wings',
-                              review: '4.7',
-                              delivery: 'Free',
-                              time: '20 min',
-                            ),
-                          ],
-                        ),
-                      )
-                 ]
-                )
-                  : SingleChildScrollView(
-          child: Column(
-              children: [
-            Padding(
-                        padding: EdgeInsets.only(right: 150.w, top: 5.h),
-                        child: Text(
-                          textAlign: TextAlign.start,
-                          'Recent keywords',
-                          style: GoogleFonts.poppins(
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xFF32343E),
+                              TextButton(
+                                onPressed: () {
+                                  // Add your onPressed logic here
+                                },
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'See All',
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 16.sp,
+                                        color: Color(0xFF32343E),
+                                      ),
+                                    ),
+                                    SizedBox(width: 8.w),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Color(0xFFA0A5BA),
+                                      size: 20.w,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
                         ),
+                        Positioned(
+                          top: 2.h,
+                          left: 0,
+                          right: 0,
+                          child: const SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                ImageTitleComponent(
+                                    title: 'All', imagePath: 'assets/res.png'),
+                                ImageTitleComponent(
+                                    title: 'Hot Dog',
+                                    imagePath: 'assets/hotdog.png'),
+                                ImageTitleComponent(
+                                    title: 'Burger',
+                                    imagePath: 'assets/burger.png'),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: EdgeInsets.only(top: 8.h, left: 20.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Open Restaurants',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF32343E),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  // Add your onPressed logic here
+                                },
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'See All',
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 16.sp,
+                                        color: Color(0xFF32343E),
+                                      ),
+                                    ),
+                                    SizedBox(width: 8.w),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Color(0xFFA0A5BA),
+                                      size: 20.w,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        // Show body content based on search text
+                        const Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              HomeCard(
+                                image: 'assets/Baguette.png',
+                                title: 'Rose Garden Restaurants',
+                                subtitle: 'Burger - Chicken - Dishes - Wings',
+                                review: '4.5',
+                                delivery: 'Free',
+                                time: '20 min',
+                              ),
+                              HomeCard(
+                                image: 'assets/papa.png',
+                                title: 'Rose Garden Restaurants',
+                                subtitle: 'Burger - Chicken - Dishes - Wings',
+                                review: '4.7',
+                                delivery: 'Free',
+                                time: '20 min',
+                              ),
+                            ],
+                          ),
+                        )
+                      ])
+                    : SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(right: 150.w, top: 5.h),
+                              child: Text(
+                                textAlign: TextAlign.start,
+                                'Recent keywords',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF32343E),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 10.h),
+                              child: const SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: [
+                                    TitleComponent(title: 'Burger'),
+                                    TitleComponent(title: 'Sandwish'),
+                                    TitleComponent(title: 'Pizza'),
+                                    TitleComponent(title: 'Makloub'),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(right: 90.w, top: 10.h),
+                              child: Text(
+                                textAlign: TextAlign.start,
+                                'Suggested Restaurants',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF32343E),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(right: 140.w, top: 10.h),
+                              child: Text(
+                                textAlign: TextAlign.start,
+                                'Popular Fast Food',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF32343E),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              child: LayoutBuilder(
+                                builder: (context, constraints) {
+                                  return Expanded(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Center(
+                                        child: Column(
+                                          children: [
+                                            SizedBox(width: 8.w),
+                                            GridView.count(
+                                              shrinkWrap: true,
+                                              crossAxisCount: 2,
+                                              mainAxisSpacing: 10.h,
+                                              crossAxisSpacing: 10.w,
+                                              children: [
+                                                SearshCardComponent(
+                                                  image:
+                                                      'assets/platchiken.png',
+                                                  foodName:
+                                                      'Shot\'s Wings Snacker',
+                                                  restauName: 'KFC',
+                                                ),
+                                                SearshCardComponent(
+                                                  image: 'assets/chiken.png',
+                                                  foodName: 'Chiken Sandwitch',
+                                                  restauName: 'KFC',
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10.h),
-                  child: const SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        TitleComponent(title: 'Burger'),
-                        TitleComponent(title: 'Sandwish'),
-                        TitleComponent(title: 'Pizza'),
-                        TitleComponent(title: 'Makloub'),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(right: 90.w, top: 10.h),
-                  child: Text(
-                    textAlign: TextAlign.start,
-                    'Suggested Restaurants',
-                    style: GoogleFonts.poppins(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF32343E),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(right: 140.w, top: 10.h),
-                  child: Text(
-                    textAlign: TextAlign.start,
-                    'Popular Fast Food',
-                    style: GoogleFonts.poppins(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF32343E),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 8.h,
-                  left: 3.w,
-                  right: 3.w,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: GridView.builder(
-                      shrinkWrap: true,
-                      padding: EdgeInsets.zero,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 8,
-                        mainAxisSpacing: 8,
-                        childAspectRatio: 1,
-                      ),
-                      itemCount: 2,
-                      itemBuilder: (context, index) {
-                        return MenuCardComponent(
-                          image: 'assets/sunrise.png',
-                          foodName: 'Crispy Chiken Burger',
-                          restauName: 'Baguette & Bageutte',
-                          price: 12.99,
-                        );
-                      },
-                    ),
-                  ),
-                ),
               ],
-            ),
-            ),
-           ],
             ),
           ),
         ),
