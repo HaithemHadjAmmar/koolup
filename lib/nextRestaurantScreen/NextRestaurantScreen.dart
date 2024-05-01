@@ -1,11 +1,8 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:koolup/cerclerestaurent/CercleRestaurent.dart';
-
 import '../CardComponent/menuCard/MenuCard.dart';
+import '../cerclerestaurent/CercleRestaurent.dart';
 
 class NextRestaurantScreen extends StatelessWidget {
   final String image;
@@ -79,7 +76,7 @@ class NextRestaurantScreen extends StatelessWidget {
                       color: Color(0xFFFF7622), size: 30.w),
                   SizedBox(width: 3.w),
                   Text(
-                   review,
+                    review,
                     style: GoogleFonts.poppins(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w500,
@@ -129,7 +126,7 @@ class NextRestaurantScreen extends StatelessWidget {
               children: [
                 SizedBox(height: kToolbarHeight.h),
                 Text(
-                 'Baguette & Baguette',
+                  title,
                   style: GoogleFonts.sen(
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w700,
@@ -137,7 +134,7 @@ class NextRestaurantScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 5.h),
                 Text(
-                  'Sousse, Khzema',
+                  subtitle,
                   style: GoogleFonts.sen(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
@@ -148,7 +145,7 @@ class NextRestaurantScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 412.h,
+            top: 415.h,
             left: 0,
             right: 0,
             child: const SingleChildScrollView(
@@ -164,29 +161,38 @@ class NextRestaurantScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 465.h,
-            left: 3.w,
-            right: 3.w,
+            top: 440.h,
+            left: 0,
+            right: 0,
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
-              child: GridView.builder(
-                shrinkWrap: true,
-                padding: EdgeInsets.zero,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 8,
-                  childAspectRatio: 1,
-                ),
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  return MenuCardComponent(
-                    image: 'assets/sunrise.png',
-                    foodName: 'Crispy Chiken Burger',
-                    restauName: 'Baguette & Bageutte',
-                    price: 12.99,
-                  );
-                },
+              child: Column(
+                children: [
+                  SizedBox(height: 8.h),
+                  GridView.count(
+                    // Set a fixed height for the GridView
+                    shrinkWrap: true,
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10.h,
+                    crossAxisSpacing: 10.w,
+                    // Adjust height based on your needs (e.g., 200.h)
+                    childAspectRatio: 1.0, // Adjust according to your needs
+                    children: const [
+                      MenuCardComponent(
+                        image: 'assets/sunrise.png',
+                        foodName: 'Crispy Chiken Burger',
+                        restauName: 'Baguette & Bageutte',
+                        price: 12.99,
+                      ),
+                      MenuCardComponent(
+                        image: 'assets/sunrise.png',
+                        foodName: 'Crispy Chiken Burger',
+                        restauName: 'Baguette & Bageutte',
+                        price: 5.99,
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),
