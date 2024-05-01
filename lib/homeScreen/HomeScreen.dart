@@ -223,7 +223,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
-
                         Padding(
                           padding: EdgeInsets.only(top: 8.h, left: 20.w),
                           child: Row(
@@ -330,7 +329,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 18.w, top: 10.h),
-                              child: Column(
+                              child: const Column(
                                 children: [
                                   SuggestedResComponenet(
                                     imagePath: 'assets/bag.png',
@@ -339,13 +338,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
 
                                   SuggestedResComponenet(
-                                    imagePath: 'assets/Ali.png', // Replace with your image path
+                                    imagePath: 'assets/Ali.png',
                                     resName: 'Ali Chapati',
                                     review: '4.4',
                                   ),
 
                                   SuggestedResComponenet(
-                                    imagePath: 'assets/Jaghalino.png', // Replace with your image path
+                                    imagePath: 'assets/Jaghalino.png',
                                     resName: 'Jaghalino',
                                     review: '4.2',
                                   ),
@@ -353,7 +352,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(right: 140.w, top: 20.h),
+                              padding: EdgeInsets.only(right: 140.w, top: 5.h),
                               child: Text(
                                 textAlign: TextAlign.start,
                                 'Popular Fast Food',
