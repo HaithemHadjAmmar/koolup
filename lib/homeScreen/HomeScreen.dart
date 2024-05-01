@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:koolup/CardComponent/HomeCard.dart';
 import 'package:koolup/Constantes.dart';
 import '../CardComponent/SearshCard/SearshCard.dart';
+import '../CardComponent/suggestedrest/SuggestedRestauComponenet.dart';
 import '../Drawer/CustomDrawer.dart';
 import '../cerclehome/CercleHome.dart';
 import '../cerclerestaurent/CercleRestaurent.dart';
@@ -328,7 +329,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(right: 140.w, top: 10.h),
+                              padding: EdgeInsets.only(left: 18.w, top: 10.h),
+                            child: SuggestedResComponenet(
+                              imagePath: 'assets/Baguette.png',
+                              resName: 'Bageutte & Baguette',
+                              review: '4.5',
+                            ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(right: 140.w, top: 20.h),
                               child: Text(
                                 textAlign: TextAlign.start,
                                 'Popular Fast Food',
