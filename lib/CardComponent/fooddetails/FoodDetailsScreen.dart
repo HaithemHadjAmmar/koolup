@@ -51,17 +51,19 @@ class FoodDetailsScreen extends StatelessWidget {
                 Image.asset(
                     width: 30.w,
                     fit: BoxFit.fitHeight,
-                    'assets/elipse.png'),
+                    'assets/elipse.png'
+                ),
             SizedBox(width: 5.w),
                 Padding(
                   padding: EdgeInsets.only(top: 3.h),
                   child:Text(
               restauName,
               style: GoogleFonts.poppins(fontSize: 16.sp, fontWeight: FontWeight.w400),
-            ),
+                 ),
                 ),
-           ],
+              ],
             ),
+
             SizedBox(height: 16.h),
 
             Column(
@@ -76,8 +78,8 @@ class FoodDetailsScreen extends StatelessWidget {
                  '2 filets de poulet épicés, laitue, fromage cheddar, sauce chili, sauce mayonnaise, 1 moyenne frite, canette au choix',
                   style: GoogleFonts.poppins(fontSize: 14.sp, fontWeight: FontWeight.w300),
                 ),
-           ],
-            ),
+               ],
+             ),
 
             SizedBox(height: 16.h),
 
@@ -91,9 +93,9 @@ class FoodDetailsScreen extends StatelessWidget {
                   style: GoogleFonts.sen(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
+                   ),
                   ),
-                ),
-                ),
+                 ),
                 SizedBox(width: 5.w),
                 Container(
                   width: 40.w,

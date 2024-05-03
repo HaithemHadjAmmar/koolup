@@ -186,7 +186,7 @@ class NextRestaurantScreen extends StatelessWidget {
                       ),
                       MenuCardComponent(
                         image: 'assets/sunrise.png',
-                        foodName: 'Crispy Chiken Burger',
+                        foodName: 'Sunrise Burger',
                         restauName: 'Baguette & Bageutte',
                         price: 5.99,
                       ),
