@@ -103,7 +103,8 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: 10.h, left: 20.w),
-                  child: Row(
+                  child: _searchText.isEmpty
+                      ? Row(
                     children: [
                       Text(
                         'Hey Chahed,',
@@ -122,6 +123,32 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       )
                     ],
+                  ) : Row(
+                    children: [
+                      Text(
+                        'Hey Chahed,',
+                        style: GoogleFonts.poppins(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF1E1D1D),
+                        ),
+                      ),
+                      Text(
+                          'Welcome!',
+                          style: GoogleFonts.poppins(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w700,
+                            color: Color(0xFF1E1D1D),
+                          ),
+                        ),
+                      SizedBox(width: 80.w),
+                      IconButton(
+                          onPressed: ()
+                          {
+
+                          },
+                          icon: Icon(Icons.tune_outlined, size: 25.w, color: Color(0xFFF58D1D),))
+                   ],
                   ),
                 ),
                 Padding(
@@ -378,7 +405,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               crossAxisCount: 2,
                                               mainAxisSpacing: 10.h,
                                               crossAxisSpacing: 10.w,
-                                              children: [
+                                              children: const [
                                                 SearshCardComponent(
                                                   image:
                                                       'assets/platchiken.png',
