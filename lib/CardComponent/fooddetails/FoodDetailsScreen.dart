@@ -138,18 +138,64 @@ class FoodDetailsScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Price: ${price.toStringAsFixed(2)}DT',
-                  style: TextStyle(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 20.w),
+                      child: Text(
+                        'Price: ${price.toStringAsFixed(2)}DT',
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 30.w),
+                    Container(
+                      width: 48.w,
+                      height: 125.h,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF121223),
+                        borderRadius: BorderRadius.circular(50.r),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0x000000).withOpacity(0.04), // Drop shadow color
+                            offset: Offset(0, 12), // Drop shadow offset
+                            blurRadius: 20, // Drop shadow blur radius
+                            spreadRadius: 0, // Drop shadow spread radius
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              // Implement decrease action
+                            },
+                            icon: Icon(Icons.remove, color: Colors.white),
+                          ),
+                          Text(
+                            '10', // Placeholder for the number
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              // Implement increase action
+                            },
+                            icon: Icon(Icons.add, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 22.sp),
                 Container(
                   width: 327.w,
                   height: 62.h,
-                  margin: EdgeInsets.fromLTRB(24.w, 0, 24.w, 0), // Adjust top and left margin as needed
+                  margin: EdgeInsets.fromLTRB(
+                      24.w, 0, 24.w, 0), // Adjust top and left margin as needed
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.r),
                     color: Color(0xFFFF7622),
@@ -159,8 +205,10 @@ class FoodDetailsScreen extends StatelessWidget {
                       // Implement button action (e.g., add to cart, order now)
                     },
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.transparent), // Set button background color to transparent
-                      elevation: MaterialStateProperty.all(0), // Remove button elevation
+                      backgroundColor: MaterialStateProperty.all(Colors
+                          .transparent), // Set button background color to transparent
+                      elevation: MaterialStateProperty.all(
+                          0), // Remove button elevation
                       shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.r),

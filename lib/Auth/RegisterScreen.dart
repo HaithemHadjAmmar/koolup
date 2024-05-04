@@ -17,10 +17,12 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   bool _obscureText = true;
 
-  String _userName = '';
+  String _Nom = '';
+  String _Prenom = '';
   String _email = '';
   String _password = '';
   String _confirmPassword = '';
+  String _Role = 'Consomateur';
 
   Color emailBorderColor = Color(0xFF341748);
   Color passwordBorderColor = Color(0xFF341748);
@@ -32,7 +34,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (_email.isNotEmpty &&
         _email.contains('@') &&
         _password.isNotEmpty &&
-        _userName.isNotEmpty &&
+        _Nom.isNotEmpty &&
+        _Prenom.isNotEmpty &&
         _confirmPassword.isNotEmpty &&
         _password == _confirmPassword) {
 
@@ -137,20 +140,37 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
-                            SizedBox(height: 80.h),
+                            SizedBox(height: 35.h),
                             TextField(
                               keyboardType: TextInputType.name,
                               decoration: InputDecoration(
                                 suffixIcon: Icon(Icons.person),
-                                hintText: 'Enter your User Name',
-                                labelText: 'User Name',
+                                hintText: 'Enter your Name',
+                                labelText: 'Name',
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(18.0),
                                   borderSide: BorderSide(color: koolColor),
                                 ),
                               ),
                               onChanged: (value) {
-                                _userName = value;
+                                _Nom = value;
+                              },
+                              cursorColor: koolColor,
+                            ),
+                            SizedBox(height: 18.h),
+                            TextField(
+                              keyboardType: TextInputType.name,
+                              decoration: InputDecoration(
+                                suffixIcon: Icon(Icons.person),
+                                hintText: 'Enter your Prenom',
+                                labelText: 'Prenom',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  borderSide: BorderSide(color: koolColor),
+                                ),
+                              ),
+                              onChanged: (value) {
+                                _Prenom = value;
                               },
                               cursorColor: koolColor,
                             ),
