@@ -23,7 +23,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController _searchController =
-      TextEditingController(); // Add controller
+      TextEditingController();
 
   String _searchText = ''; // Track search text
 
