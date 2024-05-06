@@ -67,18 +67,87 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
             ),
             SingleChildScrollView(
              child: Padding(
-               padding: EdgeInsets.only(top: 55.h, left: 10.w),
+               padding: EdgeInsets.only(top: 60.h, left: 0.w),
                child: Column(
                   children: [
-               Text(
+                    Padding(
+               padding: EdgeInsets.only(right: 285.w),
+               child: Text(
                  'Offers',
                  style: GoogleFonts.sen(
                      fontSize: 15.sp,
                      fontWeight: FontWeight.w400
                   ),
                  ),
+             ),
+                   SizedBox(height: 10.h),
+                   const SingleChildScrollView(
+                     scrollDirection: Axis.horizontal,
+                     child: Wrap(
+                       alignment: WrapAlignment.start,
+                       children: [
+                         TitleComponent(title: 'Delivery'),
+                         TitleComponent(title: 'Pick Up'),
+                         TitleComponent(title: 'Offer'),
+                       ],
+                     ),
+                   ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 10.h, right: 240.w),
+                      child: Text(
+                        'Deliver Time',
+                        style: GoogleFonts.sen(
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w400
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10.h),
+                    const SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Wrap(
+                        alignment: WrapAlignment.start,
+                        children: [
+                          TitleComponent(title: '10-15 min'),
+                          TitleComponent(title: '20 min'),
+                          TitleComponent(title: '30 min'),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 10.h, right: 270.w),
+                      child: Text(
+                        'Pricing',
+                        style: GoogleFonts.sen(
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w400
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10.h),
+                    const SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Wrap(
+                        alignment: WrapAlignment.start,
+                        children: [
+                          TitleComponent(title: '\$'),
+                          TitleComponent(title: '\$\$'),
+                          TitleComponent(title: '\$\$\$'),
+                        ],
+                      ),
+                    ),
 
-                ]
+                    SizedBox(height: 20.h),
+
+                    CustomButton(
+                        onPressed: ()
+                        {
+
+                        },
+                        buttonText: 'Filter'
+                    ),
+                    SizedBox(height: 15.h),
+                  ]
                ),
              ),
             )
