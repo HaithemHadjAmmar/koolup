@@ -219,12 +219,11 @@ class FoodDetailsScreen extends StatelessWidget {
                         );
                       },
                     ),
-
-
                   ],
                 ),
 
                 SizedBox(height: 22.sp),
+
                 CustomButton(
                   onPressed: () {
                     // Implement button action (e.g., add to cart, order now)
