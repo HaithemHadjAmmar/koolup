@@ -23,6 +23,9 @@ class FoodDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int quantity = 1;
+    int selectedQuantity = quantity;
+
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
@@ -144,54 +147,83 @@ class FoodDetailsScreen extends StatelessWidget {
                   children: [
                     Padding(
                       padding: EdgeInsets.only(left: 20.w),
-                      child: Text(
-                        'Price: ${price.toStringAsFixed(2)}DT',
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
+                      child: StatefulBuilder(
+                        builder: (context, setState) {
+                          double totalPrice = price * selectedQuantity; // Calculate total price
+                          return Text(
+                            'Price: ${totalPrice.toStringAsFixed(2)}DT', // Use totalPrice here
+                            style: GoogleFonts.sen(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          );
+                        },
                       ),
                     ),
-                    SizedBox(width: 30.w),
-                    Container(
-                      width: 48.w,
-                      height: 125.h,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF121223),
-                        borderRadius: BorderRadius.circular(50.r),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0x000000).withOpacity(0.04), // Drop shadow color
-                            offset: Offset(0, 12), // Drop shadow offset
-                            blurRadius: 20, // Drop shadow blur radius
-                            spreadRadius: 0, // Drop shadow spread radius
+                    SizedBox(width: 60.w),
+                    StatefulBuilder(
+                      builder: (context, setState) {
+                        double totalPrice = price * selectedQuantity; // Calculate total price
+
+                        return Container(
+                          width: 125.w,
+                          height: 48.h,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF121223),
+                            borderRadius: BorderRadius.circular(50.r),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x000000).withOpacity(0.04),
+                                offset: Offset(12, 0),
+                                blurRadius: 20,
+                                spreadRadius: 0,
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              // Implement decrease action
-                            },
-                            icon: Icon(Icons.remove, color: Colors.white),
+                          child: Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  if (quantity > 1) {
+                                    setState(() {
+                                      quantity--;
+                                      selectedQuantity = quantity; // Update selected quantity
+                                      totalPrice = price / selectedQuantity; // Recalculate total price
+                                    });
+                                  }
+                                },
+                                icon: Icon(Icons.remove, color: Colors.white),
+                              ),
+                              const Spacer(),
+                              Text(
+                                quantity.toString(),
+                                style: GoogleFonts.sen(
+                                  color: Colors.white,
+                                  fontSize: 17.sp,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              const Spacer(),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    quantity++;
+                                    selectedQuantity = quantity; // Update selected quantity
+                                    totalPrice = price * selectedQuantity; // Recalculate total price
+                                  });
+                                },
+                                icon: Icon(Icons.add, color: Colors.white),
+                              ),
+                            ],
                           ),
-                          Text(
-                            '10', // Placeholder for the number
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              // Implement increase action
-                            },
-                            icon: Icon(Icons.add, color: Colors.white),
-                          ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
+
+
                   ],
                 ),
+
                 SizedBox(height: 22.sp),
                 CustomButton(
                   onPressed: () {
