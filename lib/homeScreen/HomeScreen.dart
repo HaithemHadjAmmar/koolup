@@ -13,6 +13,53 @@ import '../cerclehome/CercleHome.dart';
 import '../cerclerestaurent/CercleRestaurent.dart';
 import '../customappbar/AppBar.dart';
 
+class CustomBottomSheet extends StatefulWidget {
+  final VoidCallback onDismiss;
+
+  const CustomBottomSheet({Key? key, required this.onDismiss})
+      : super(key: key);
+
+  @override
+  _CustomBottomSheetState createState() =>
+      _CustomBottomSheetState();
+}
+
+class _CustomBottomSheetState extends State<CustomBottomSheet> {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        widget.onDismiss();
+      },
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.9,
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(bottom: 350.h),
+              child: Center(
+                child: Container(
+                  width: 130.w,
+                  height: 8.h,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFFF7622),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10.0.r),
+                      topRight: Radius.circular(10.0.r),
+                      bottomRight: Radius.circular(10.0.r),
+                      bottomLeft: Radius.circular(10.0.r),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+         ]
+        ),
+      ),
+    );
+  }
+}
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -143,12 +190,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       SizedBox(width: 80.w),
                       IconButton(
-                          onPressed: ()
-                          {
-
-                          },
-                          icon: Icon(Icons.tune_outlined, size: 25.w, color: Color(0xFFF58D1D),))
-                   ],
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return CustomBottomSheet(onDismiss: () {  },); // Show the custom bottom sheet
+                            },
+                          );
+                        },
+                        icon: Icon(Icons.tune_outlined, size: 25.w, color: Color(0xFFF58D1D)),
+                      ),
+                    ],
                   ),
                 ),
                 Padding(

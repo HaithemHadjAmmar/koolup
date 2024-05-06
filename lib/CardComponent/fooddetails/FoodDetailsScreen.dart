@@ -163,8 +163,7 @@ class FoodDetailsScreen extends StatelessWidget {
                     SizedBox(width: 60.w),
                     StatefulBuilder(
                       builder: (context, setState) {
-                        double totalPrice = price * selectedQuantity; // Calculate total price
-
+                        double totalPrice = price * selectedQuantity;
                         return Container(
                           width: 125.w,
                           height: 48.h,
