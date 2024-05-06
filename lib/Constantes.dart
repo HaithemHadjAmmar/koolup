@@ -34,10 +34,10 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 327.w,
-      height: 62.h,
+      width: 360.w,
+      height: 55.h,
       margin: EdgeInsets.fromLTRB(
-          24.w, 0, 24.w, 0), // Adjust top and left margin as needed
+          12.w, 0, 12.w, 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.r),
         color: Color(0xFFFF7622),
@@ -46,9 +46,9 @@ class CustomButton extends StatelessWidget {
         onPressed: onPressed,
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(
-              Colors.transparent), // Set button background color to transparent
+              Colors.transparent),
           elevation:
-          MaterialStateProperty.all(0), // Remove button elevation
+          MaterialStateProperty.all(0),
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12.r),
@@ -58,7 +58,7 @@ class CustomButton extends StatelessWidget {
         child: Text(
           buttonText,
           style: TextStyle(
-            fontSize: 16.sp,
+            fontSize: 18.sp,
             fontWeight: FontWeight.w700,
             color: Colors.white,
           ),
