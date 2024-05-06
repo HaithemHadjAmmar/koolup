@@ -36,7 +36,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
         child: Stack(
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 350.h),
+              padding: EdgeInsets.only(bottom: 355.h),
               child: Center(
                 child: Container(
                   width: 130.w,
@@ -53,6 +53,35 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
                 ),
               ),
             ),
+            Positioned(
+                top: 25.h,
+                left: 10.w,
+                right: 0,
+                child: Text(
+                  'Filter your search',
+                style: GoogleFonts.sen(
+                   fontSize: 17.sp,
+                  fontWeight: FontWeight.w400
+                ),
+                ),
+            ),
+            SingleChildScrollView(
+             child: Padding(
+               padding: EdgeInsets.only(top: 55.h, left: 10.w),
+               child: Column(
+                  children: [
+               Text(
+                 'Offers',
+                 style: GoogleFonts.sen(
+                     fontSize: 15.sp,
+                     fontWeight: FontWeight.w400
+                  ),
+                 ),
+
+                ]
+               ),
+             ),
+            )
          ]
         ),
       ),
@@ -188,7 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: Color(0xFF1E1D1D),
                           ),
                         ),
-                      SizedBox(width: 80.w),
+                      SizedBox(width: 100.w),
                       IconButton(
                         onPressed: () {
                           showModalBottomSheet(
@@ -198,7 +227,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             },
                           );
                         },
-                        icon: Icon(Icons.tune_outlined, size: 25.w, color: Color(0xFFF58D1D)),
+                        icon: Icon(Icons.tune_outlined, size: 26.w, color: Color(0xFFF58D1D)),
                       ),
                     ],
                   ),
