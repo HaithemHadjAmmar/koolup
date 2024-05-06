@@ -140,15 +140,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
 
                                 SizedBox(height: 30.h),
 
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.symmetric(horizontal: 20.w),
-                                    backgroundColor: Color(0xFFFF7622),
-                                    fixedSize: Size(330.8, 60),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
+                                CustomButton(
                                   onPressed: () {
                                     Get.to(
                                           () => LoginScreen(),
@@ -156,14 +148,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                                       duration: Duration(milliseconds: 300),
                                     );
                                   },
-                                  child: Text(
-                                    'VERIFY',
-                                    style: GoogleFonts.inter(
-                                      color: Colors.white,
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
+                                  buttonText: 'VERIFY',
                                 ),
                               ],
                             ),

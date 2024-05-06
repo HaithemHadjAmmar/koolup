@@ -248,26 +248,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               cursorColor: koolColor,
                             ),
                             SizedBox(height: 30.h),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.symmetric(horizontal: 20.w),
-                                backgroundColor: Color(0xFFFF7622),
-                                fixedSize: Size(330.8, 60),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
+                            CustomButton(
                               onPressed: () {
-                                handleRegister();
+                               handleRegister();
                               },
-                              child: Text(
-                                'SIGN UP',
-                                style: GoogleFonts.inter(
-                                  color: Colors.white,
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
+                              buttonText: 'SIGN UP',
                             ),
                           ],
                         ),

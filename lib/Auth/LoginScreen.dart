@@ -208,26 +208,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               ],
                             ),
                             SizedBox(height: 10.h),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.symmetric(horizontal: 20.h),
-                                backgroundColor: Color(0xFFFF7622),
-                                fixedSize: Size(330.8, 60),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
+                            CustomButton(
                               onPressed: () {
                                 handleLogin();
                               },
-                              child: Text(
-                                'SIGN IN',
-                                style: GoogleFonts.inter(
-                                  color: Colors.white,
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
+                              buttonText: 'LOG IN',
                             ),
                             SizedBox(
                               height: 5.h,

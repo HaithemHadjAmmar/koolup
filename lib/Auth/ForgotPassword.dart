@@ -143,26 +143,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                 ),
 
                                 SizedBox(height: 30.h),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.symmetric(horizontal: 20.w),
-                                    backgroundColor: Color(0xFFFF7622),
-                                    fixedSize: Size(330.8, 60),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
+                                CustomButton(
                                   onPressed: () {
-                                    handleForgot();
+                                   handleForgot();
                                   },
-                                  child: Text(
-                                    'Send Code',
-                                    style: GoogleFonts.inter(
-                                      color: Colors.white,
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
+                                  buttonText: 'SEND CODE',
                                 ),
                               ],
                             ),
