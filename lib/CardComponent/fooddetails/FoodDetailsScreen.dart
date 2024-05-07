@@ -56,14 +56,17 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
     }
   }
 
-  void addToCart(BuildContext context, String image, String foodName, String restauName) {
+  void addToCart(BuildContext context, String image, String foodName, String restauName, double price) {
     Get.to(MyCartScreen(
       image: image,
       foodName: foodName,
       restauName: restauName,
+      price: price,
       totalPrice: totalPrice,
+      quantity: quantity,
     ), transition: Transition.fadeIn,
-      duration: Duration(milliseconds: 300),);
+      duration: Duration(milliseconds: 300),
+    );
   }
 
   @override
@@ -256,7 +259,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
 
                 CustomButton(
                   onPressed: () {
-                    addToCart(context, widget.image, widget.foodName, widget.restauName);
+                    addToCart(context, widget.image, widget.foodName, widget.restauName, widget.price);
                   },
                   buttonText: 'ADD TO CART',
                 ),
