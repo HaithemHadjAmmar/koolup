@@ -37,12 +37,11 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
     totalPrice = widget.price * selectedQuantity;
   }
 
-  // Inside the _FoodDetailsScreenState class
   void incrementQuantity() {
     setState(() {
       quantity++;
       selectedQuantity = quantity;
-      totalPrice = widget.price * selectedQuantity; // Recalculate total price
+      totalPrice = widget.price * selectedQuantity;
     });
   }
 
@@ -51,7 +50,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
       setState(() {
         quantity--;
         selectedQuantity = quantity;
-        totalPrice = widget.price * selectedQuantity; // Recalculate total price
+        totalPrice = widget.price * selectedQuantity;
       });
     }
   }
@@ -71,7 +70,11 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
           onPressed: () => Get.back(),
         ),
       ),
-      body: Column(
+      body: WillPopScope(
+        onWillPop: () async {
+          return false;
+    },
+    child: Column(
         children: [
           Expanded(
             child: SingleChildScrollView(
@@ -250,6 +253,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
             ),
           ),
         ],
+      ),
       ),
     );
   }
