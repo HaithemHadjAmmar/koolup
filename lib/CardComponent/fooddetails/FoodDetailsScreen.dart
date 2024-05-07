@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 
 import '../../Constantes.dart';
+import '../../payment/MyCartScreen.dart';
 
 class FoodDetailsScreen extends StatefulWidget {
   final String image;
@@ -53,6 +54,16 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
         totalPrice = widget.price * selectedQuantity;
       });
     }
+  }
+
+  void addToCart(BuildContext context, String image, String foodName, String restauName) {
+    Get.to(MyCartScreen(
+      image: image,
+      foodName: foodName,
+      restauName: restauName,
+      totalPrice: totalPrice,
+    ), transition: Transition.fadeIn,
+      duration: Duration(milliseconds: 300),);
   }
 
   @override
@@ -245,7 +256,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
 
                 CustomButton(
                   onPressed: () {
-                    // Implement button action (e.g., add to cart, order now)
+                    addToCart(context, widget.image, widget.foodName, widget.restauName);
                   },
                   buttonText: 'ADD TO CART',
                 ),
