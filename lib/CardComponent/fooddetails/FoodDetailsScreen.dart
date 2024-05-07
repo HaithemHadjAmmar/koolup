@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 
 import '../../Constantes.dart';
 
-class FoodDetailsScreen extends StatelessWidget {
+class FoodDetailsScreen extends StatefulWidget {
   final String image;
   final String foodName;
   final String restauName;
@@ -22,10 +22,42 @@ class FoodDetailsScreen extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    int quantity = 1;
-    int selectedQuantity = quantity;
+  _FoodDetailsScreenState createState() => _FoodDetailsScreenState();
+}
 
+class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
+  int quantity = 1;
+  late int selectedQuantity;
+  late double totalPrice;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedQuantity = quantity;
+    totalPrice = widget.price * selectedQuantity;
+  }
+
+  // Inside the _FoodDetailsScreenState class
+  void incrementQuantity() {
+    setState(() {
+      quantity++;
+      selectedQuantity = quantity;
+      totalPrice = widget.price * selectedQuantity; // Recalculate total price
+    });
+  }
+
+  void decrementQuantity() {
+    if (quantity > 1) {
+      setState(() {
+        quantity--;
+        selectedQuantity = quantity;
+        totalPrice = widget.price * selectedQuantity; // Recalculate total price
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
@@ -45,88 +77,89 @@ class FoodDetailsScreen extends StatelessWidget {
             child: SingleChildScrollView(
               padding: EdgeInsets.all(20.0),
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Hero(
-                      tag: 'food_image_${UniqueKey().toString()}',
-                      child: Image.asset(
-                        image,
-                        width: double.infinity,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Hero(
+                    tag: 'food_image_${UniqueKey().toString()}',
+                    child: Image.asset(
+                      widget.image,
+                      width: double.infinity,
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        'assets/elipse.png',
+                        width: 30.w,
                         fit: BoxFit.fitHeight,
                       ),
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset(
-                          'assets/elipse.png',
-                          width: 30.w,
-                          fit: BoxFit.fitHeight,
+                      SizedBox(width: 5.w),
+                      Padding(
+                        padding: EdgeInsets.only(top: 3.h),
+                        child: Text(
+                          widget.restauName,
+                          style: GoogleFonts.poppins(
+                              fontSize: 16.sp, fontWeight: FontWeight.w400),
                         ),
-                        SizedBox(width: 5.w),
-                        Padding(
-                          padding: EdgeInsets.only(top: 3.h),
-                          child: Text(
-                            restauName,
-                            style: GoogleFonts.poppins(
-                                fontSize: 16.sp, fontWeight: FontWeight.w400),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 16.h),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.foodName,
+                        style: GoogleFonts.poppins(
+                            fontSize: 20.sp, fontWeight: FontWeight.w700),
+                      ),
+                      SizedBox(height: 3.h),
+                      Text(
+                        '2 filets de poulet épicés, laitue, fromage cheddar, sauce chili, sauce mayonnaise, 1 moyenne frite, canette au choix',
+                        style: GoogleFonts.poppins(
+                            fontSize: 14.sp, fontWeight: FontWeight.w300),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 16.h),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 10.h),
+                        child: Text(
+                          'SIZE:',
+                          style: GoogleFonts.sen(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
-                      ],
-                    ),
-                    SizedBox(height: 16.h),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          foodName,
-                          style: GoogleFonts.poppins(
-                              fontSize: 20.sp, fontWeight: FontWeight.w700),
+                      ),
+                      SizedBox(width: 5.w),
+                      Container(
+                        width: 40.w,
+                        height: 40.h,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFE2703D),
+                          borderRadius: BorderRadius.circular(80.r),
                         ),
-                        SizedBox(height: 3.h),
-                        Text(
-                          '2 filets de poulet épicés, laitue, fromage cheddar, sauce chili, sauce mayonnaise, 1 moyenne frite, canette au choix',
-                          style: GoogleFonts.poppins(
-                              fontSize: 14.sp, fontWeight: FontWeight.w300),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 16.h),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: 10.h),
+                        child: Center(
                           child: Text(
-                            'SIZE:',
-                            style: GoogleFonts.sen(
-                              fontSize: 14.sp,
+                            '10',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                         ),
-                        SizedBox(width: 5.w),
-                        Container(
-                          width: 40.w,
-                          height: 40.h,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFE2703D),
-                            borderRadius: BorderRadius.circular(80.r),
-                          ),
-                          child: Center(
-                            child: Text(
-                              '10',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ]),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
           // Added container for price and button
@@ -149,9 +182,8 @@ class FoodDetailsScreen extends StatelessWidget {
                       padding: EdgeInsets.only(left: 20.w),
                       child: StatefulBuilder(
                         builder: (context, setState) {
-                          double totalPrice = price * selectedQuantity; // Calculate total price
                           return Text(
-                            'Price: ${totalPrice.toStringAsFixed(2)}DT', // Use totalPrice here
+                            'Price: ${totalPrice.toStringAsFixed(2)}DT',
                             style: GoogleFonts.sen(
                               fontSize: 18.sp,
                               fontWeight: FontWeight.w600,
@@ -163,7 +195,6 @@ class FoodDetailsScreen extends StatelessWidget {
                     SizedBox(width: 60.w),
                     StatefulBuilder(
                       builder: (context, setState) {
-                        double totalPrice = price * selectedQuantity;
                         return Container(
                           width: 125.w,
                           height: 48.h,
@@ -182,15 +213,7 @@ class FoodDetailsScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               IconButton(
-                                onPressed: () {
-                                  if (quantity > 1) {
-                                    setState(() {
-                                      quantity--;
-                                      selectedQuantity = quantity; // Update selected quantity
-                                      totalPrice = price / selectedQuantity; // Recalculate total price
-                                    });
-                                  }
-                                },
+                                onPressed: decrementQuantity,
                                 icon: Icon(Icons.remove, color: Colors.white),
                               ),
                               const Spacer(),
@@ -204,13 +227,7 @@ class FoodDetailsScreen extends StatelessWidget {
                               ),
                               const Spacer(),
                               IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    quantity++;
-                                    selectedQuantity = quantity; // Update selected quantity
-                                    totalPrice = price * selectedQuantity; // Recalculate total price
-                                  });
-                                },
+                                onPressed: incrementQuantity,
                                 icon: Icon(Icons.add, color: Colors.white),
                               ),
                             ],
@@ -237,3 +254,4 @@ class FoodDetailsScreen extends StatelessWidget {
     );
   }
 }
+
