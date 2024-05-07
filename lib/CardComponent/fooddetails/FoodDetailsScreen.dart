@@ -140,7 +140,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                       SizedBox(width: 5.w),
                       Container(
                         width: 40.w,
-                        height: 40.h,
+                        height: 38.h,
                         decoration: BoxDecoration(
                           color: Color(0xFFE2703D),
                           borderRadius: BorderRadius.circular(80.r),
