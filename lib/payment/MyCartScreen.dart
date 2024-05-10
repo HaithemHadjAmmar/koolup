@@ -65,59 +65,72 @@ class _MyCartScreenState extends State<MyCartScreen> {
         centerTitle: false,
         title: Text(
           'Cart',
-          style: GoogleFonts.sen(fontSize: 17.sp, fontWeight: FontWeight.w600, color: Colors.white),
+          style: GoogleFonts.sen(
+              fontSize: 17.sp,
+              fontWeight: FontWeight.w600,
+              color: Colors.white),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 25.w, color: Colors.white,),
+          icon: Icon(
+            Icons.arrow_back_ios_new_rounded,
+            size: 25.w,
+            color: Colors.white,
+          ),
           onPressed: () => Get.back(),
         ),
       ),
       body: Column(
         children: [
           Expanded(
-            child: Center(
-              child: Column(
-                children: [
-                  Image.asset(widget.image),
-                  SizedBox(height: 10),
-                  Text('Food Name: ${widget.foodName}'),
-                  Text('Restaurant Name: ${widget.restauName}'),
-                  Text('Total Price: $totalPrice'),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            height: 160.h,
-            decoration: BoxDecoration(
-              color: Color(0xFFF0F5FA),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(24.r),
-                topRight: Radius.circular(24.r),
-              ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Row(
               children: [
-                Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 20.w),
-                      child: Text(
-                        'Price: ${totalPrice.toStringAsFixed(2)}DT',
-                        style: GoogleFonts.sen(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
+                Container(
+                  width: 136.w,
+                  height: 117.h,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1), // Opacity 10%
+                        offset: Offset(12, 12), // Drop shadow X 12, Y 12
+                        blurRadius: 30, // Blur 30
+                        spreadRadius: 0, // Spread 0
                       ),
+                    ],
+                  ),
+                  child: Image.asset(
+                    widget.image,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+
+                SizedBox(width: 15.w),
+
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start, // Align text to the left
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '${widget.foodName}',
+                      style: GoogleFonts.sen(
+                          color: Colors.white,
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w600),
                     ),
-                    SizedBox(width: 60.w),
+                    SizedBox(height: 8.sp),
+                    Text(
+                      '$totalPrice',
+                      style: GoogleFonts.sen(
+                          color: Colors.white,
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w800),
+                    ),
+                    SizedBox(height: 10.h),
                     Container(
+                      margin: EdgeInsets.only(left: 75.w),
                       width: 125.w,
                       height: 48.h,
                       decoration: BoxDecoration(
-                        color: Color(0xFF121223),
+                        color: Colors.transparent,
                         borderRadius: BorderRadius.circular(50.r),
                         boxShadow: [
                           BoxShadow(
@@ -151,11 +164,42 @@ class _MyCartScreenState extends State<MyCartScreen> {
                         ],
                       ),
                     ),
+                 ],
+                ),
+              ],
+            ),
+
+          ),
+          Container(
+            width: double.infinity,
+            height: 160.h,
+            decoration: BoxDecoration(
+              color: Color(0xFFF0F5FA),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(24.r),
+                topRight: Radius.circular(24.r),
+              ),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 20.w),
+                      child: Text(
+                        'TOTAL: ${totalPrice.toStringAsFixed(2)}DT',
+                        style: GoogleFonts.sen(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      )
+                    ),
+                    SizedBox(width: 60.w),
+
                   ],
                 ),
-
                 SizedBox(height: 22.sp),
-
                 CustomButton(
                   onPressed: () {
                     //addToCart(context, widget.image, widget.foodName, widget.restauName);
