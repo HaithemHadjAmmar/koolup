@@ -22,6 +22,10 @@ class NextRestaurantScreen extends StatelessWidget {
     required this.time,
   }) : super(key: key);
 
+  void addToCart(String image, String foodName, String restauName, double price) {
+    // Handle adding item to cart here
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -183,12 +187,14 @@ class NextRestaurantScreen extends StatelessWidget {
                         foodName: 'Crispy Chiken Burger',
                         restauName: 'Baguette & Bageutte',
                         price: 12.99,
+
                       ),
                       MenuCardComponent(
                         image: 'assets/sunrise.png',
                         foodName: 'Sunrise Burger',
                         restauName: 'Baguette & Bageutte',
                         price: 5.99,
+
                       ),
                     ],
                   ),

@@ -34,7 +34,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: Color(0xFF341748),
             size: 30.w,
           ),
-          onPressed: () {},
+          onPressed: () {
+
+          },
         ),
       ],
     );

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
-
 import '../Constantes.dart';
+import 'PaymementMethod.dart';
 
 class MyCartScreen extends StatefulWidget {
   final String image;
@@ -14,6 +14,7 @@ class MyCartScreen extends StatefulWidget {
   final double price;
   final double totalPrice;
   final int quantity;
+ // final List<CartItem> cartItems;
 
   MyCartScreen({
     required this.image,
@@ -22,11 +23,13 @@ class MyCartScreen extends StatefulWidget {
     required this.price,
     required this.totalPrice,
     required this.quantity,
+   // required this.cartItems
   });
 
   @override
   _MyCartScreenState createState() => _MyCartScreenState();
 }
+String _adresse = '';
 
 class _MyCartScreenState extends State<MyCartScreen> {
   late int selectedQuantity;
@@ -42,7 +45,7 @@ class _MyCartScreenState extends State<MyCartScreen> {
   void incrementQuantity() {
     setState(() {
       selectedQuantity++;
-      totalPrice = widget.totalPrice * selectedQuantity;
+      totalPrice = widget.price * selectedQuantity;
     });
   }
 
@@ -50,9 +53,25 @@ class _MyCartScreenState extends State<MyCartScreen> {
     if (selectedQuantity > 1) {
       setState(() {
         selectedQuantity--;
-        totalPrice = widget.totalPrice * selectedQuantity;
+        totalPrice = widget.price * selectedQuantity;
       });
     }
+  }
+
+  void addToCart() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PaymentMethodScreen(
+          image: widget.image,
+          foodName: widget.foodName,
+          restauName: widget.restauName,
+          price: widget.price,
+          totalPrice: totalPrice,
+          quantity: selectedQuantity,
+        ),
+      ),
+    );
   }
 
   @override
@@ -98,8 +117,9 @@ class _MyCartScreenState extends State<MyCartScreen> {
                     ],
                   ),
                   child: Image.asset(
+                    width: 50.w,
                     widget.image,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
 
@@ -118,7 +138,7 @@ class _MyCartScreenState extends State<MyCartScreen> {
                     ),
                     SizedBox(height: 8.sp),
                     Text(
-                      '$totalPrice',
+                      ' ${totalPrice.toStringAsFixed(2)}',
                       style: GoogleFonts.sen(
                           color: Colors.white,
                           fontSize: 18.sp,
@@ -172,7 +192,7 @@ class _MyCartScreenState extends State<MyCartScreen> {
           ),
           Container(
             width: double.infinity,
-            height: 160.h,
+            height: 250.h,
             decoration: BoxDecoration(
               color: Color(0xFFF0F5FA),
               borderRadius: BorderRadius.only(
@@ -183,29 +203,57 @@ class _MyCartScreenState extends State<MyCartScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 20.w),
-                      child: Text(
-                        'TOTAL: ${totalPrice.toStringAsFixed(2)}DT',
-                        style: GoogleFonts.sen(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      )
+              Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+             child: TextField(
+                  keyboardType: TextInputType.name,
+                  decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.location_on),
+                    hintText: 'Akouda,Sousse',
+                    labelText: 'Delivery Adress',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      borderSide: BorderSide(color: koolColor),
                     ),
-                    SizedBox(width: 60.w),
-
-                  ],
-                ),
-                SizedBox(height: 22.sp),
-                CustomButton(
-                  onPressed: () {
-                    //addToCart(context, widget.image, widget.foodName, widget.restauName);
+                  ),
+                  onChanged: (value) {
+                    _adresse = value;
                   },
-                  buttonText: 'ADD TO CART',
+                  cursorColor: koolColor,
                 ),
+               ),
+
+                SizedBox(height: 40.sp),
+
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 20.w),
+                            child: Text(
+                              'TOTAL: ${totalPrice.toStringAsFixed(2)}DT',
+                              style: GoogleFonts.sen(
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 22.h),
+                      CustomButton(
+                        onPressed: addToCart,
+                        buttonText: 'ADD TO CART',
+                      ),
+                    ],
+                  ),
+                )
+
               ],
             ),
           ),

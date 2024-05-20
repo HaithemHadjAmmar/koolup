@@ -57,11 +57,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 setState(() {
                   textColor1 = koolColor;
                 });
-                Get.to(
-                      () => HomeScreen(),
-                  transition: Transition.fadeIn,
-                  duration: Duration(milliseconds: 300),
-                );
+
               });
             },
           ),

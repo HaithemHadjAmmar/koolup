@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:koolup/Constantes.dart';
+import 'package:koolup/payment/MyCartScreen.dart';
 import 'package:koolup/profile/profile.dart';
 
 import 'Auth/LoginScreen.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
                // '/dashboard': (context) => DashboardScreen(),
               //  '/menu': (context) => MenuScreen(),
               //  '/add': (context) => AddScreen(),
-              //  '/notifications': (context) => NotificationsScreen(),
+              //  '/myCartScreen': (context) => MyCartScreen(),
                 '/profile': (context) => Profile(),
               },
           debugShowCheckedModeBanner: false,

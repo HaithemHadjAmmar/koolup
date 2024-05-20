@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:koolup/payment/MyCartScreen.dart';
 import '../fooddetails/FoodDetailsScreen.dart';
 
 class MenuCardComponent extends StatelessWidget {
@@ -86,7 +87,17 @@ class MenuCardComponent extends StatelessWidget {
                     SizedBox(width: 22.w),
                     IconButton(
                       onPressed: () {
-                        // Implement your add action here (optional)
+                        Get.to(
+                        MyCartScreen(
+                          image: image,
+                          foodName: foodName,
+                          restauName: restauName,
+                          price: price,
+                          totalPrice: price,
+                          quantity: 1,
+                        ), transition: Transition.fadeIn,
+                          duration: Duration(milliseconds: 300),
+                        );
                       },
                       icon: Icon(Icons.add_circle, color: Color(0xFFFF7622), size: 40.w),
                     ),
