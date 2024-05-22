@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../Constantes.dart';
+import 'TrackOrder.dart';
 
 class CongradulationsScreen extends StatefulWidget {
+  final String image;
+  final String foodName;
+  final String restauName;
+  final double price;
+  final double totalPrice;
+  final int quantity;
+
   const CongradulationsScreen({
     Key? key,
+    required this.image,
+    required this.foodName,
+    required this.restauName,
+    required this.price,
+    required this.totalPrice,
+    required this.quantity
   }) : super(key: key);
 
   @override
@@ -15,7 +30,7 @@ class CongradulationsScreen extends StatefulWidget {
 
 class _CongradulationsScreenState extends State<CongradulationsScreen> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
@@ -49,7 +64,20 @@ class _CongradulationsScreenState extends State<CongradulationsScreen> {
               SizedBox(
                 width: double.infinity,
                 child: CustomButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(
+                          () => TrackOrder(
+                              image: widget.image,
+                              foodName: widget.foodName,
+                              restauName: widget.restauName,
+                              price: widget.price,
+                              totalPrice: widget.totalPrice,
+                              quantity: widget.quantity
+                          ),
+                      transition: Transition.fadeIn,
+                      duration: Duration(milliseconds: 300),
+                    );
+                  },
                   buttonText: 'Track Order',
                 ),
               ),

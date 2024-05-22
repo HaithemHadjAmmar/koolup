@@ -113,7 +113,14 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                     ),
                     onPressed: () {
                       Get.to(
-                            () => FormulaireCartScreen(),
+                            () => FormulaireCartScreen(
+                              image: widget.image,
+                              foodName: widget.foodName,
+                              restauName: widget.restauName,
+                              price: widget.price,
+                              totalPrice: widget.totalPrice,
+                              quantity: widget.quantity
+                            ),
                         transition: Transition.fadeIn,
                         duration: Duration(milliseconds: 300),
                       );
@@ -147,7 +154,14 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                  CustomButton(
                    onPressed: () {
                      Get.to(
-                           () => CongradulationsScreen(),
+                           () => CongradulationsScreen(
+                               image: widget.image,
+                               foodName: widget.foodName,
+                               restauName: widget.restauName,
+                               price: widget.price,
+                               totalPrice: widget.totalPrice,
+                               quantity: widget.quantity
+                           ),
                        transition: Transition.fadeIn,
                        duration: Duration(milliseconds: 300),
                      );

@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../Constantes.dart';
 
 class FormulaireCartScreen extends StatefulWidget {
-  const FormulaireCartScreen({Key? key}) : super(key: key);
+  final String image;
+  final String foodName;
+  final String restauName;
+  final double price;
+  final double totalPrice;
+  final int quantity;
+
+
+  const FormulaireCartScreen({Key? key,
+    required this.image,
+    required this.foodName,
+    required this.restauName,
+    required this.price,
+    required this.totalPrice,
+    required this.quantity,}) : super(key: key);
 
   @override
   State<FormulaireCartScreen> createState() => _FormulaireCartScreenState();
@@ -19,14 +34,12 @@ class _FormulaireCartScreenState extends State<FormulaireCartScreen> {
       appBar: AppBar(
         title: Text(
           'Card Information',
-          style: GoogleFonts.poppins(
-            fontSize: 18.sp,
-            fontWeight: FontWeight.w600,
-          ),
+          style: GoogleFonts.sen(fontSize: 17.sp, fontWeight: FontWeight.w600),
         ),
-        backgroundColor: Colors.white,
-        elevation: 1.0,
-        iconTheme: IconThemeData(color: Colors.black),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 25.w),
+          onPressed: () => Get.back(),
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0.w),
