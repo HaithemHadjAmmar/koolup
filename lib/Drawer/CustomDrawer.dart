@@ -1,9 +1,9 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:koolup/profile/profile.dart';
 import '../Constantes.dart';
-import 'package:get/get.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -145,9 +145,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               });
             },
           ),
-
           const Divider(),
-
           ListTile(
             splashColor: koolColor,
             leading: Row(
@@ -296,9 +294,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               });
             },
           ),
-
-         const Divider(),
-
+          const Divider(),
           ListTile(
             splashColor: koolColor,
             leading: Row(
@@ -410,9 +406,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               });
             },
           ),
-
           const Divider(),
-
           ListTile(
             splashColor: koolColor,
             leading: Row(
@@ -455,4 +449,3 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 }
-
