@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:koolup/Adress/AdressScreen.dart';
 import '../Constantes.dart';
 import '../profile/profile.dart';
 
@@ -109,7 +110,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 Get.to(
                       () => Profile(),
                   transition: Transition.fadeIn,
-                  duration: Duration(milliseconds: 300),
+                  duration: Duration(milliseconds: 200),
                 );
               });
             },
@@ -149,6 +150,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   textColor2 = koolColor;
                 });
               });
+              Get.to(
+                    () => Adressscreen(),
+                transition: Transition.fadeIn,
+                duration: Duration(milliseconds: 300),
+              );
             },
           ),
           const Divider(),

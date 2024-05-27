@@ -20,6 +20,7 @@ class _EditProfilState extends State<EditProfil> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         title: Text(
           'Edit Profile',
           style: GoogleFonts.poppins(
