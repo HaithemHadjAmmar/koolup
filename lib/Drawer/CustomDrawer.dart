@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../Constantes.dart';
+import '../profile/profile.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -42,7 +44,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     'assets/chahd.png',
                     width: 80.w,
                     height: 80.h,
-                    fit: BoxFit.cover,
                   ),
                 ),
                 SizedBox(width: 30.w),
@@ -105,6 +106,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 setState(() {
                   textColor1 = koolColor;
                 });
+                Get.to(
+                      () => Profile(),
+                  transition: Transition.fadeIn,
+                  duration: Duration(milliseconds: 300),
+                );
               });
             },
           ),
