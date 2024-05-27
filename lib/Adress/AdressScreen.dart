@@ -72,7 +72,7 @@ class _AdressscreenState extends State<Adressscreen> {
                                   onPressed: () {
                                     // Add functionality for delete action
                                   },
-                                  icon: Icon(Icons.edit_note, color: Colors.red,),
+                                  icon: Icon(Icons.edit, color: Colors.red,),
                                 ),
                                 IconButton(
                                   onPressed: () {
@@ -137,7 +137,7 @@ class _AdressscreenState extends State<Adressscreen> {
                                   onPressed: () {
                                     // Add functionality for delete action
                                   },
-                                  icon: Icon(Icons.edit_note, color: Colors.red,),
+                                  icon: Icon(Icons.edit, color: Colors.red,),
                                 ),
                                 IconButton(
                                   onPressed: () {
