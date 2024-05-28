@@ -1,10 +1,13 @@
 // ignore_for_file: file_names
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../Constantes.dart';
 
@@ -16,6 +19,19 @@ class EditProfil extends StatefulWidget {
 }
 
 class _EditProfilState extends State<EditProfil> {
+  File? _image;
+
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      setState(() {
+        _image = File(pickedFile.path);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,16 +58,46 @@ class _EditProfilState extends State<EditProfil> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: ClipOval(
-                 child: Hero(
-                   tag: 'profile',
-                  child: Image.asset(
-                    'assets/chahd.png',
-                    width: 120.w,
-                    height: 120.h,
-                  ),
+                child: Stack(
+                  children: [
+                    ClipOval(
+                      child: Hero(
+                        tag: 'profile',
+                        child: _image == null
+                            ? Image.asset(
+                          'assets/chahd.png',
+                          width: 120,
+                          height: 120,
+                          fit: BoxFit.cover,
+                        )
+                            : Image.file(
+                          _image!,
+                          width: 120,
+                          height: 120,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      right: 0,
+                      child: GestureDetector(
+                        onTap: _pickImage,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xFFFF7622),
+                            shape: BoxShape.circle,
+                          ),
+                          padding: EdgeInsets.all(8),
+                          child: Icon(
+                            Icons.edit_outlined,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-               ),
               ),
               SizedBox(height: 15.h),
               Text(
@@ -127,7 +173,7 @@ class _EditProfilState extends State<EditProfil> {
               ),
               SizedBox(height: 8.h),
               TextFormField(
-                maxLines: 3, // Allows up to 4 lines
+                maxLines: 3,
                 decoration: InputDecoration(
                   fillColor: Color(0xFFF0F5FA),
                   filled: true,
@@ -153,3 +199,5 @@ class _EditProfilState extends State<EditProfil> {
     );
   }
 }
+
+
