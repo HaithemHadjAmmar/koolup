@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../MapComponent/MapComponent.dart';
+
 class TrackOrder extends StatefulWidget {
   final String image;
   final String foodName;
@@ -41,8 +43,9 @@ class _TrackOrderState extends State<TrackOrder> {
       ),
       body: Stack(
         children: [
-          // Add your main body content here
-
+          Positioned.fill(
+            child: MyMapComponent(),
+          ),
           Positioned(
             bottom: 0,
             width: MediaQuery.of(context).size.width,
