@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:koolup/Adress/AdressScreen.dart';
+import 'package:koolup/Orders/MyOrders.dart';
 import '../Constantes.dart';
 import '../profile/profile.dart';
 
@@ -193,6 +194,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   textColor3 = koolColor;
                 });
               });
+              Get.to(
+                    () => MyOrdersScreen(),
+                transition: Transition.fadeIn,
+                duration: Duration(milliseconds: 200),
+              );
             },
           ),
           ListTile(

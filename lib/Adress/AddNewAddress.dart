@@ -9,7 +9,7 @@ import '../Constantes.dart';
 import '../MapComponent/MapComponent.dart';
 
 class Addnewaddress extends StatefulWidget {
-  const Addnewaddress({Key? key}) : super(key: key);
+  const Addnewaddress({super.key});
 
   @override
   State<Addnewaddress> createState() => _AddnewaddressState();
@@ -35,7 +35,7 @@ class _AddnewaddressState extends State<Addnewaddress> {
                   top: 30.h,
                   left: 10.w,
                   child: IconButton(
-                    icon: Icon(Icons.arrow_back_ios, color: Colors.black, size: 30.w),
+                    icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black, size: 30.w),
                     onPressed: () {
                       Get.back();
                     },

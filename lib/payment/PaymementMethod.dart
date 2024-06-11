@@ -18,14 +18,14 @@ class PaymentMethodScreen extends StatefulWidget {
   final int quantity;
 
   const PaymentMethodScreen({
-    Key? key,
+    super.key,
     required this.image,
     required this.foodName,
     required this.restauName,
     required this.price,
     required this.totalPrice,
     required this.quantity,
-  }) : super(key: key);
+  });
 
   @override
   _PaymentMethodScreenState createState() => _PaymentMethodScreenState();

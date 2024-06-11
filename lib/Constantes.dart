@@ -36,8 +36,7 @@ class CustomButton extends StatelessWidget {
     return Container(
       width: 360.w,
       height: 55.h,
-      margin: EdgeInsets.fromLTRB(
-          12.w, 0, 12.w, 0),
+      margin: EdgeInsets.fromLTRB(12.w, 0, 12.w, 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.r),
         color: Color(0xFFFF7622),
@@ -45,10 +44,8 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
-              Colors.transparent),
-          elevation:
-          MaterialStateProperty.all(0),
+          backgroundColor: MaterialStateProperty.all(Colors.transparent),
+          elevation: MaterialStateProperty.all(0),
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12.r),
@@ -62,6 +59,80 @@ class CustomButton extends StatelessWidget {
             fontWeight: FontWeight.w700,
             color: Colors.white,
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomOutlinedButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String buttonText;
+
+  const CustomOutlinedButton({
+    Key? key,
+    required this.onPressed,
+    required this.buttonText,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 360.w,
+      height: 55.h,
+      margin: EdgeInsets.fromLTRB(12.w, 0, 12.w, 0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12.r),
+        border: Border.all(color: Color(0xFFFF7622)),
+        color: Colors.white,
+      ),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.transparent),
+          elevation: MaterialStateProperty.all(0),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.r),
+            ),
+          ),
+        ),
+        child: Text(
+          buttonText,
+          style: TextStyle(
+            fontSize: 18.sp,
+            fontWeight: FontWeight.w700,
+            color: Color(0xFFFF7622),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MyPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('My Page')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustomButton(
+              onPressed: () {
+                // Handle button press
+              },
+              buttonText: 'Primary Button',
+            ),
+            SizedBox(height: 20.h),
+            CustomOutlinedButton(
+              onPressed: () {
+                // Handle button press
+              },
+              buttonText: 'Outlined Button',
+            ),
+          ],
         ),
       ),
     );
