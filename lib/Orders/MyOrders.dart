@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:koolup/Orders/OrderComponents/CustomDivider.dart';
 
+import 'OrderComponents/HistoryComponenet.dart';
 import 'OrderComponents/OngoingComponent.dart';
 
 class MyOrdersScreen extends StatefulWidget {
@@ -141,7 +142,7 @@ class HistoryOrdersPage extends StatelessWidget {
             ),
             const CustomDivider(),
             SizedBox(height: 10.h),
-            OngoingListWidget(),
+            HistoryListWidget(),
             SizedBox(height: 10.h),
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -156,7 +157,7 @@ class HistoryOrdersPage extends StatelessWidget {
             ),
             const CustomDivider(),
             SizedBox(height: 10.h),
-            DrinkListWidget(),
+            DrinkHistoryListWidget(),
             SizedBox(height: 10.h),
           ],
         ),

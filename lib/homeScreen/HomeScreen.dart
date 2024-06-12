@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:koolup/CardComponent/HomeCard.dart';
 import 'package:koolup/Constantes.dart';
+import 'package:koolup/homeScreen/SeeAllCategories.dart';
 import '../CardComponent/SearshCard/SearshCard.dart';
 import '../CardComponent/suggestedrest/SuggestedRestauComponenet.dart';
 import '../Drawer/CustomDrawer.dart';
@@ -358,7 +359,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  // Add your onPressed logic here
+                                  Get.to(
+                                        () => SeeAllCategories(),
+                                    transition: Transition.fadeIn,
+                                    duration: Duration(milliseconds: 300),
+                                  );
                                 },
                                 child: Row(
                                   children: [
