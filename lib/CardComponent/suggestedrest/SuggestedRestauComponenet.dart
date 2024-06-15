@@ -28,7 +28,7 @@ Get.to(
 image: imagePath,
 title: resName,
 review: review,
-  subtitle: '',
+  subtitle: 'Rose Garden restaurant',
   delivery: 'Free',
   time: '30 min',
 ),

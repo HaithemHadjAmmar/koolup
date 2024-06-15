@@ -171,7 +171,20 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                 ),
               ),
             ),
-            // Added container for price and button
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              imageWithLabel('assets/chik.png', 'Chiken'),
+              SizedBox(width: 20.w),
+              imageWithLabel('assets/salt.png', 'Salt'),
+              SizedBox(width: 20.w),
+              imageWithLabel('assets/onion.png', 'Onion'),
+              SizedBox(width: 20.w),
+              imageWithLabel('assets/garlic.png', 'Garlic'),
+              SizedBox(width: 20.w),
+              imageWithLabel('assets/pappers.png', 'Pappers'),
+          ],
+        ),
             Container(
               width: double.infinity,
               height: 160.h,
@@ -262,4 +275,25 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
       ),
     );
   }
+}
+
+Widget imageWithLabel(String imagePath, String label) {
+  return GestureDetector(
+    onTap: () {
+      print('$label clicked');
+      // Handle the click event here
+    },
+    child: Column(
+      children: <Widget>[
+        Image.asset(imagePath, width: 50.w, height: 50.h),
+        Text(label,
+          style: GoogleFonts.poppins(
+              color: Colors.grey,
+              fontSize: 12.sp,
+            fontWeight: FontWeight.w500
+          ),
+        ),
+      ],
+    ),
+  );
 }

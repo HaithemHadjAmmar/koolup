@@ -57,7 +57,6 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                   _buildPaymentMethodContainer(context, 'assets/delevry.png', 'Cash en Delivry'),
                   _buildPaymentMethodContainer(context, 'assets/visa.png', 'Visa'),
                   _buildPaymentMethodContainer(context, 'assets/mcard.png', 'MasterCard'),
-                  _buildPaymentMethodContainer(context, 'assets/pypal.png', 'PayPal'),
                 ],
               ),
             ),
@@ -114,13 +113,13 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                     onPressed: () {
                       Get.to(
                             () => FormulaireCartScreen(
-                              image: widget.image,
-                              foodName: widget.foodName,
-                              restauName: widget.restauName,
-                              price: widget.price,
-                              totalPrice: widget.totalPrice,
-                              quantity: widget.quantity
-                            ),
+                            image: widget.image,
+                            foodName: widget.foodName,
+                            restauName: widget.restauName,
+                            price: widget.price,
+                            totalPrice: widget.totalPrice,
+                            quantity: widget.quantity
+                        ),
                         transition: Transition.fadeIn,
                         duration: Duration(milliseconds: 300),
                       );
@@ -137,39 +136,39 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                 ),
               ),
 
-             SizedBox(height: 30.h),
+              SizedBox(height: 30.h),
 
-               Column(
-                 children: [
-                   Text(
-                     'TOTAL: ${widget.totalPrice.toStringAsFixed(2)}DT',
-                     style: GoogleFonts.sen(
-                       fontSize: 18.sp,
-                       fontWeight: FontWeight.w600,
-                     ),
-                   ),
+              Column(
+                children: [
+                  Text(
+                    'TOTAL: ${widget.totalPrice.toStringAsFixed(2)}DT',
+                    style: GoogleFonts.sen(
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
 
-                 SizedBox(height: 22.h),
+                  SizedBox(height: 22.h),
 
-                 CustomButton(
-                   onPressed: () {
-                     Get.to(
-                           () => CongradulationsScreen(
-                               image: widget.image,
-                               foodName: widget.foodName,
-                               restauName: widget.restauName,
-                               price: widget.price,
-                               totalPrice: widget.totalPrice,
-                               quantity: widget.quantity
-                           ),
-                       transition: Transition.fadeIn,
-                       duration: Duration(milliseconds: 300),
-                     );
-                   },
-                   buttonText: 'PAY & CONFIRM',
-                 ),
-                 ],
-               )
+                  CustomButton(
+                    onPressed: () {
+                      Get.to(
+                            () => CongradulationsScreen(
+                            image: widget.image,
+                            foodName: widget.foodName,
+                            restauName: widget.restauName,
+                            price: widget.price,
+                            totalPrice: widget.totalPrice,
+                            quantity: widget.quantity
+                        ),
+                        transition: Transition.fadeIn,
+                        duration: Duration(milliseconds: 300),
+                      );
+                    },
+                    buttonText: 'PAY & CONFIRM',
+                  ),
+                ],
+              )
             ],
           ],
         ),
@@ -191,6 +190,10 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
         decoration: BoxDecoration(
           color: Color(0xFFF0F5FA),
           borderRadius: BorderRadius.circular(10.r),
+          border: Border.all(
+            color: _selectedPaymentMethod == text ? Color(0xFFFF7622) : Colors.transparent,
+            width: 2.w,
+          ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -207,3 +210,4 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
     );
   }
 }
+
