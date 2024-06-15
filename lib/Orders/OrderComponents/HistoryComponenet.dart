@@ -46,8 +46,10 @@ class _HistoryListWidgetState extends State<HistoryListWidget> {
                     fit: BoxFit.cover,
                   ),
                   SizedBox(width: 20.w),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
                     children: [
                       Text(
                         item.foodName,
@@ -56,6 +58,17 @@ class _HistoryListWidgetState extends State<HistoryListWidget> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      SizedBox(width: 20.w),
+
+                      Text('Completed',
+                        style: GoogleFonts.poppins(
+                            color: Colors.green,
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w700
+                        ),
+                      )
+                    ],
+                  ),
                       SizedBox(height: 5.h),
                       Row(
                         children: [
@@ -143,12 +156,25 @@ class _DrinkHistoryListWidgetState extends State<DrinkHistoryListWidget> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Row(
+                        children: [
                       Text(
                         item.foodName,
                         style: GoogleFonts.poppins(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
+                      ),
+                          SizedBox(width: 20.w),
+                          
+                          Text('Canceled',
+                            style: GoogleFonts.poppins(
+                              color: Colors.red,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w700
+                            ),
+                          )
+                      ],
                       ),
                       SizedBox(height: 5.h),
                       Row(
