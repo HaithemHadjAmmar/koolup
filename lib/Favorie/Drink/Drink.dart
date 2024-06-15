@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:koolup/Constantes.dart';
 
 import '../../CustomButtons.dart';
 
@@ -21,6 +22,21 @@ class _DrinksState extends State<Drinks> {
       quantity: 02,
     ),
   ];
+
+  // Map to track favorite status
+  Map<int, bool> favoriteMap = {};
+
+  void toggleFavorite(int index) {
+    setState(() {
+      favoriteMap[index] = !(favoriteMap[index] ?? false); // Toggle the favorite status
+    });
+
+    if (favoriteMap[index]!) {
+      // If favorite is now true (i.e., red icon), show Snackbar
+      errorSnackBar(context, 'Added to favorites');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -32,6 +48,7 @@ class _DrinksState extends State<Drinks> {
           itemCount: drinkItems.length,
           itemBuilder: (context, index) {
             final item = drinkItems[index];
+            final isFavorite = favoriteMap[index] ?? false;
             return Padding(
               padding: const EdgeInsets.all(20.0),
               child: Row(
@@ -56,9 +73,16 @@ class _DrinksState extends State<Drinks> {
                           ),
                           SizedBox(width: 120.w),
 
-                          Icon(Icons.favorite_border,
-                              size: 30.w
-                          )
+                          GestureDetector(
+                            onTap: () {
+                              toggleFavorite(index); // Toggle favorite status on tap
+                            },
+                            child: Icon(
+                              isFavorite ? Icons.favorite : Icons.favorite_border,
+                              color: isFavorite ? Colors.red : Colors.black,
+                              size: 30.w,
+                            ),
+                          ),
                         ],
                       ),
                       SizedBox(height: 5.h),
